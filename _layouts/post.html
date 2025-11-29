@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<article class="py-12 md:py-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <!-- Post Header -->
+        <header class="mb-12 text-center">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl mb-4">{{ page.title }}</h1>
+
+            <div class="flex flex-wrap justify-center gap-3 text-text-muted mb-4">
+                <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time>
+                {% if page.author %}
+                <span>•</span>
+                <span>{{ page.author }}</span>
+                {% endif %}
+            </div>
+
+            {% if page.categories %}
+            <div class="flex flex-wrap justify-center gap-2">
+                {% for category in page.categories %}
+                <span class="bg-accent/20 text-accent px-3 py-1 rounded text-sm">{{ category }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </header>
+
+        <!-- Post Content -->
+        <div class="prose prose-invert prose-lg max-w-none
+                prose-headings:text-accent
+                prose-p:text-primary-text prose-p:leading-relaxed
+                prose-a:text-accent prose-a:hover:underline
+                prose-strong:text-primary-text
+                prose-code:text-accent
+                prose-pre:bg-card-bg prose-pre:border-2 prose-pre:border-primary-text
+                prose-ul:text-primary-text
+                prose-ol:text-primary-text">
+            {{ content }}
+        </div>
+
+        <!-- Back to blogs -->
+        <div class="mt-12 pt-8 border-t-2 border-primary-text">
+            <a href="{{ '/blogs.html' | relative_url }}" class="text-accent hover:underline">←
+                กลับไปหน้าบล็อกทั้งหมด</a>
+        </div>
+    </div>
+</article>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <meta name="description"
+        content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+    {% seo %}
+    {% feed_meta %}
+</head>
+
+<body>
+    {% if page.show_nav != false %}
+    {% include navigation.html %}
+    {% endif %}
+
+    <main>
+        {{ content }}
+    </main>
+
+    {% if page.custom_js %}
+    <script src="{{ '/assets/js/' | append: page.custom_js | relative_url }}"></script>
+    {% endif %}
+
+    <!-- Anime.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <!-- Custom Animations -->
+    <script src="{{ '/assets/js/animations.js' | relative_url }}"></script>
+</body>
+
+</html>

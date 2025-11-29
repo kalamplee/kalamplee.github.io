@@ -1,0 +1,9 @@
+name: "Your Name"
+bio: "นักพัฒนาเว็บและนักเขียนเนื้อหา ผู้หลงใหลในเทคโนโลยีและการเรียนรู้สิ่งใหม่ ๆ"
+email: "yourname@example.com"
+image: "images/profile.jpg"
+socials:
+  facebook: "https://facebook.com/yourprofile"
+  twitter: "https://twitter.com/yourhandle"
+  youtube: "https://youtube.com/@yourchannel"
+  instagram: "https://instagram.com/yourhandle"

@@ -1,0 +1,24 @@
+- name: "Email"
+  icon: "📧"
+  handle: "yourname@example.com"
+  url: "mailto:yourname@example.com"
+
+- name: "Facebook"
+  icon: "📘"
+  handle: "@yourprofile"
+  url: "https://facebook.com/yourprofile"
+
+- name: "X (Twitter)"
+  icon: "🐦"
+  handle: "@yourhandle"
+  url: "https://twitter.com/yourhandle"
+
+- name: "YouTube"
+  icon: "▶️"
+  handle: "@yourchannel"
+  url: "https://youtube.com/@yourchannel"
+
+- name: "Instagram"
+  icon: "📷"
+  handle: "@yourhandle"
+  url: "https://instagram.com/yourhandle"

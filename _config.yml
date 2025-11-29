@@ -1,0 +1,52 @@
+title: Portfolio
+email: yourname@example.com
+description: >-
+  เว็บไซต์แสดงผลงานและบล็อกส่วนตัว
+baseurl: ""
+url: "https://kalamplee.github.io"
+lang: th
+
+# Build settings
+markdown: kramdown
+theme: null
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Your Name"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - package.json
+  - package-lock.json
+  - tailwind.config.js
+  - postcss.config.js
+  - _assets/
+
+# Include
+include:
+  - _pages
+
+# Permalink style
+permalink: pretty
+
+# Timezone
+timezone: Asia/Bangkok

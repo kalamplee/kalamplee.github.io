@@ -1,0 +1,59 @@
+---
+layout: default
+---
+
+<!-- Profile Section -->
+<section class="py-20 md:py-32 text-center bg-gradient-to-b from-primary-bg to-card-bg/30">
+    <div class="container mx-auto px-6 max-w-4xl">
+        <div class="relative inline-block">
+            <div class="absolute inset-0 bg-accent/20 blur-xl rounded-full"></div>
+            <img src="{{ site.data.profile.image | relative_url }}" alt="Profile"
+                class="relative w-40 h-40 md:w-56 md:h-56 rounded-full border-4 border-accent mx-auto mb-8 object-cover shadow-glow hover:scale-105 transition-transform duration-500">
+        </div>
+        <h1
+            class="text-4xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary-text to-accent animate-fade-in-down">
+            {{ site.data.profile.name }}</h1>
+        <p class="max-w-2xl mx-auto text-text-muted leading-relaxed text-lg md:text-xl animate-fade-in-up">{{
+            site.data.profile.bio }}</p>
+    </div>
+</section>
+
+<!-- Pinned Blogs Section -->
+{% assign pinned_posts = site.posts | where: "pinned", true %}
+{% if pinned_posts.size > 0 %}
+<section class="py-16 md:py-24 relative">
+    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-text/30 to-transparent">
+    </div>
+    <div class="container mx-auto px-6 max-w-7xl">
+        <div class="flex items-center gap-4 mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold">📌 บล็อกปักหมุด</h2>
+            <div class="h-px flex-grow bg-primary-text/30"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for post in pinned_posts %}
+            {% include blog-card.html post=post %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Latest Blogs Section -->
+{% assign latest_posts = site.posts | where_exp: "post", "post.pinned != true" | sort: "date" | reverse | limit: 6 %}
+<section class="py-16 md:py-24 bg-card-bg/5">
+    <div class="container mx-auto px-6 max-w-7xl">
+        <div class="flex items-center gap-4 mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold">📝 บล็อกล่าสุด</h2>
+            <div class="h-px flex-grow bg-primary-text/30"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for post in latest_posts %}
+            {% include blog-card.html post=post %}
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-16">
+            <a href="{{ '/blogs.html' | relative_url }}" class="btn btn-primary text-lg px-10 py-4">ดูบล็อกทั้งหมด</a>
+        </div>
+    </div>
+</section>
