@@ -12,6 +12,9 @@
 
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     {% seo %}
     {% feed_meta %}
 </head>
@@ -31,6 +34,13 @@
 
     <!-- Anime.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            lucide.createIcons();
+        });
+    </script>
 
     <!-- Custom Animations -->
     <script src="{{ '/assets/js/animations.js' | relative_url }}"></script>

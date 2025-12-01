@@ -1,4 +1,4 @@
-name: "Your Name"
+name: "Mr.Kalamplee"
 bio: "นักพัฒนาเว็บและนักเขียนเนื้อหา ผู้หลงใหลในเทคโนโลยีและการเรียนรู้สิ่งใหม่ ๆ"
 email: "yourname@example.com"
 image: "images/profile.jpg"
@@ -7,3 +7,10 @@ socials:
   twitter: "https://twitter.com/yourhandle"
   youtube: "https://youtube.com/@yourchannel"
   instagram: "https://instagram.com/yourhandle"
+
+roles:
+  - "🎮 Game Developer"
+  - "🎨 Artist"
+  - "✍️ Writer"
+  - "🤡 Memer"
+  - "💅 Crossdresser"
