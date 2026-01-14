@@ -21,11 +21,11 @@
 
 @layer components {
     .btn {
-        @apply inline-block px-8 py-3 text-lg font-semibold text-center border-2 border-accent rounded-lg bg-transparent text-accent cursor-pointer transition-all duration-300 hover:bg-accent hover:text-primary-bg hover:shadow-glow hover:-translate-y-0.5;
+        @apply inline-block px-16 py-8 text-xl font-bold text-center rounded-lg bg-accent text-primary-bg cursor-pointer transition-all duration-300 hover:opacity-90 hover:shadow-glow hover:-translate-y-0.5;
     }
 
     .btn-primary {
-        @apply bg-accent text-primary-bg hover:bg-transparent hover:text-accent;
+        @apply bg-accent text-primary-bg;
     }
 
     .card {
@@ -37,7 +37,15 @@
     }
 
     .contact-item {
-        @apply flex items-center gap-6 p-6 bg-card-bg border-2 border-primary-text rounded-xl transition-all duration-300 hover:border-accent hover:bg-card-hover hover:shadow-md hover:-translate-y-1 text-primary-text hover:text-accent cursor-pointer;
+        @apply flex items-center gap-4 p-4 bg-primary-text rounded-xl transition-all duration-300 hover:opacity-90 hover:shadow-md hover:-translate-y-1 text-primary-bg cursor-pointer;
+    }
+
+    .contact-item .text-accent {
+        @apply text-primary-bg;
+    }
+
+    .contact-item .text-text-muted {
+        @apply text-primary-bg opacity-70;
     }
 
     .blog-card {

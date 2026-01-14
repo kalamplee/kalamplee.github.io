@@ -5,20 +5,35 @@
 
 - name: "Facebook"
   icon: "facebook"
-  handle: "@yourprofile"
-  url: "https://facebook.com/yourprofile"
+  handle: "@KokutouTH"
+  url: "https://www.facebook.com/KokutouTH"
 
 - name: "X (Twitter)"
   icon: "twitter"
-  handle: "@yourhandle"
-  url: "https://twitter.com/yourhandle"
+  handle: "@mrkalamplee"
+  url: "https://x.com/mrkalamplee"
 
 - name: "YouTube"
   icon: "youtube"
-  handle: "@yourchannel"
-  url: "https://youtube.com/@yourchannel"
+  handle: "@mr.kalamplee7846"
+  url: "https://www.youtube.com/channel/UCnyfYaBrlhd14r0dSE4TTqg"
 
 - name: "Instagram"
   icon: "instagram"
-  handle: "@yourhandle"
-  url: "https://instagram.com/yourhandle"
+  handle: "@mrkalamplee"
+  url: "https://www.instagram.com/mrkalamplee/"
+
+- name: "itch.io"
+  icon: "gamepad-2"
+  handle: "@kalamplee"
+  url: "https://kalamplee.itch.io/"
+
+- name: "GitHub"
+  icon: "github"
+  handle: "@kalamplee"
+  url: "https://github.com/kalamplee"
+
+- name: "Pixiv"
+  icon: "brush"
+  handle: "@mrkalamplee"
+  url: "https://www.pixiv.net/users/16806617"
