@@ -1,12 +1,24 @@
-<nav class="sticky top-0 w-full bg-primary-bg/95 backdrop-blur-md border-primary-text z-50 py-5">
+<nav class="sticky top-0 w-full bg-primary-bg/70 backdrop-blur-md z-50 py-4">
     <div class="container mx-auto px-6 flex justify-between items-center max-w-7xl">
-        <a href="{{ '/home.html' | relative_url }}"
-            class="text-2xl font-bold text-accent hover:text-primary-text transition-colors">Portfolio</a>
+        <a href="{{ '/' | relative_url }}"
+            class="text-2xl font-bold text-accent hover:text-primary-text transition-colors">Kalampl.ee</a>
 
-        <ul class="flex gap-8 list-none">
-            <li><a href="{{ '/home.html' | relative_url }}" class="nav-link">หน้าหลัก</a></li>
-            <li><a href="{{ '/blogs.html' | relative_url }}" class="nav-link">บล็อก</a></li>
-            <li><a href="{{ '/' | relative_url }}" class="nav-link">ติดต่อ</a></li>
+        <ul class="flex gap-6 md:gap-8 list-none items-center">
+            <li>
+                <a href="{{ '/home.html' | relative_url }}" class="nav-link flex items-center" title="หน้าหลัก">
+                    <i data-lucide="home" class="w-6 h-6"></i>
+                </a>
+            </li>
+            <li>
+                <a href="{{ '/blogs.html' | relative_url }}" class="nav-link flex items-center" title="บล็อก">
+                    <i data-lucide="book-open" class="w-6 h-6"></i>
+                </a>
+            </li>
+            <li>
+                <a href="{{ '/' | relative_url }}" class="nav-link flex items-center" title="ติดต่อ">
+                    <i data-lucide="message-circle" class="w-6 h-6"></i>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

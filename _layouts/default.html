@@ -28,6 +28,19 @@
         {{ content }}
     </main>
 
+    <footer class="py-12 border-t border-primary-text/10 bg-primary-bg">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex flex-col items-center gap-4">
+                <a href="mailto:watcharawee.sripiboon@gmail.com"
+                    class="flex flex-wrap justify-center items-center gap-2 text-text-muted hover:text-accent transition-colors">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                    <span>watcharawee.sripiboon@gmail.com</span>
+                </a>
+                <p class="text-text-muted/50 text-sm">© {{ 'now' | date: "%Y" }} Mr.Kalamplee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     {% if page.custom_js %}
     <script src="{{ '/assets/js/' | append: page.custom_js | relative_url }}"></script>
     {% endif %}
