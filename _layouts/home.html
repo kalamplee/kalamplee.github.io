@@ -8,8 +8,11 @@ layout: default
         <div class="flex flex-col md:flex-row items-start gap-8 lg:gap-12">
             <!-- Left: Image -->
             <div class="w-full md:w-1/5 flex justify-center animate-fade-in px-4">
-                <img src="{{ site.data.profile.image | relative_url }}" alt="Profile"
-                    class="w-full max-w-[140px] md:max-w-none aspect-square rounded-3xl object-cover hover:scale-[1.02] transition-transform duration-300">
+                <div
+                    class="bg-white p-2 pb-6 shadow-2xl rotate-3 hover:rotate-[-2deg] hover:scale-110 transition-all duration-500 ease-out w-fit mx-auto cursor-pointer">
+                    <img src="{{ site.data.profile.image | relative_url }}" alt="Profile"
+                        class="w-full max-w-[160px] md:max-w-[200px] h-auto block bg-black">
+                </div>
             </div>
 
             <!-- Right: Content -->
@@ -74,9 +77,9 @@ layout: default
                 <!-- Tabs Navigation: Archive Style -->
                 <!-- Tabs Navigation: Archive Style -->
                 <div id="tabs-container"
-                    class="overflow-x-auto scrollbar-hide -mx-6 px-6 pb-1 cursor-grab active:cursor-grabbing"
+                    class="overflow-x-auto scrollbar-hide pb-1 cursor-grab active:cursor-grabbing w-full"
                     style="-ms-overflow-style: none; scrollbar-width: none;">
-                    <div class="flex gap-1 relative z-20 w-max pr-6">
+                    <div class="flex gap-1 relative z-20 w-max">
                         <button id="btn-bio" onclick="toggleSection('bio')"
                             class="px-4 py-3 md:py-2 rounded-t-xl border-t border-x border-primary-text/10 bg-primary-text/5 transition-all duration-300 flex items-center gap-2 text-primary-text/50 whitespace-nowrap select-none">
                             <i data-lucide="user" class="w-4 h-4"></i>
