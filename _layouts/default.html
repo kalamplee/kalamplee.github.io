@@ -10,10 +10,17 @@
     <meta name="description"
         content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
+    <link rel="icon" type="image/png" href="{{ '/images/kalam-logo.png' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        [data-lucide] {
+            /* fill: currentColor; */
+            stroke-width: 1px;
+        }
+    </style>
 
     {% seo %}
     {% feed_meta %}
@@ -36,7 +43,7 @@
                     <i data-lucide="mail" class="w-5 h-5"></i>
                     <span>watcharawee.sripiboon@gmail.com</span>
                 </a>
-                <p class="text-text-muted/50 text-sm">© {{ 'now' | date: "%Y" }} Mr.Kalamplee. All rights reserved.</p>
+                <p class="text-text-muted/50 text-sm">© {{ 'now' | date: "%Y" }} Kalampl.ee. All rights reserved.</p>
             </div>
         </div>
     </footer>

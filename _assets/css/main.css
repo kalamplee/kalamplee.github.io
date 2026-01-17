@@ -21,15 +21,15 @@
 
 @layer components {
     .btn {
-        @apply inline-block px-16 py-8 text-xl font-bold text-center rounded-lg bg-accent text-primary-bg cursor-pointer transition-all duration-300 hover:opacity-90 hover:shadow-glow hover:-translate-y-0.5;
+        @apply inline-block px-16 py-8 text-xl font-bold text-center rounded-lg bg-accent text-primary-bg cursor-pointer transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5;
     }
 
     .btn-primary {
-        @apply bg-accent text-primary-bg;
+        @apply bg-accent text-primary-bg hover:bg-primary-text;
     }
 
     .card {
-        @apply bg-card-bg border-2 border-primary-text rounded-xl p-6 transition-all duration-300 hover:bg-card-hover hover:shadow-lg hover:-translate-y-1 hover:border-accent;
+        @apply bg-card-bg border-2 border-primary-text rounded-xl p-6 transition-all duration-300 hover:bg-card-hover hover:shadow-lg hover:-translate-y-1;
     }
 
     .nav-link {
@@ -37,15 +37,36 @@
     }
 
     .contact-item {
-        @apply flex items-center gap-4 p-4 bg-primary-text rounded-xl transition-all duration-300 hover:opacity-90 hover:shadow-md hover:-translate-y-1 text-primary-bg cursor-pointer;
+        @apply flex items-center gap-4 p-4 bg-transparent border-0 rounded-xl transition-all duration-300 text-primary-text cursor-pointer;
+    }
+
+    .contact-item:hover {
+        color: #fed576;
+        @apply border-0 -translate-y-1 scale-105;
+        /* accent-color */
     }
 
     .contact-item .text-accent {
-        @apply text-primary-bg;
+        color: #7fe599;
+        /* primary-text */
+        @apply transition-colors duration-300;
+    }
+
+    .contact-item:hover .text-accent {
+        color: #fed576;
+        /* accent-color */
     }
 
     .contact-item .text-text-muted {
-        @apply text-primary-bg opacity-70;
+        color: #5ca876;
+        /* text-muted */
+        @apply transition-colors duration-300;
+    }
+
+    .contact-item:hover .text-text-muted {
+        color: #fed576;
+        /* accent color */
+        @apply opacity-80;
     }
 
     .blog-card {

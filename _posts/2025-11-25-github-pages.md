@@ -5,6 +5,7 @@ date: 2025-11-25
 categories: [เทคโนโลยี, การพัฒนาเว็บ]
 excerpt: "เรียนรู้วิธีการสร้างและเผยแพร่เว็บไซต์ส่วนตัวด้วย GitHub Pages อย่างง่ายดาย"
 pinned: true
+announcement: true
 ---
 
 GitHub Pages เป็นบริการฟรีจาก GitHub ที่ให้คุณสามารถโฮสต์เว็บไซต์ static ได้โดยตรงจาก repository
