@@ -81,6 +81,9 @@ show_nav: false
         </div>
         {% endif %}
 
+        <div class="mb-6">
+            <h3 class="text-primary-text font-bold text-xl">My Contacts</h3>
+        </div>
         <div class="flex flex-wrap justify-center gap-6 md:gap-8 max-w-5xl mx-auto mb-12">
             {% for contact in site.data.contacts %}
             <a href="{{ contact.url }}" {% if contact.url contains 'http' %}target="_blank" rel="noopener noreferrer" {%
