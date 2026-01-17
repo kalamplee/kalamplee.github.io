@@ -2,28 +2,369 @@
 layout: default
 ---
 
-<!-- Profile Section -->
-<section class="py-20 md:py-32 text-center bg-gradient-to-b from-primary-bg to-card-bg/30">
-    <div class="container mx-auto px-6 max-w-4xl">
-        <div class="relative inline-block">
-            <div class="absolute inset-0 bg-accent/20 blur-xl rounded-full"></div>
-            <img src="{{ site.data.profile.image | relative_url }}" alt="Profile"
-                class="relative w-40 h-40 md:w-56 md:h-56 rounded-full border-4 border-accent mx-auto mb-8 object-cover shadow-glow hover:scale-105 transition-transform duration-500">
+<!-- Bio Section -->
+<section class="pt-6 pb-2 relative overflow-hidden">
+    <div class="container mx-auto px-6 max-w-7xl relative z-10">
+        <div class="flex flex-col md:flex-row items-start gap-8 lg:gap-12">
+            <!-- Left: Image -->
+            <div class="w-full md:w-1/5 flex justify-center animate-fade-in px-4">
+                <img src="{{ site.data.profile.image | relative_url }}" alt="Profile"
+                    class="w-full max-w-[140px] md:max-w-none aspect-square rounded-3xl object-cover hover:scale-[1.02] transition-transform duration-300">
+            </div>
+
+            <!-- Right: Content -->
+            <div class="w-full md:w-2/3 animate-fade-in-up md:pt-2 text-center md:text-left">
+                <div class="flex flex-col md:flex-row items-center md:items-end gap-2 mb-4">
+                    <h1 class="text-3xl md:text-5xl font-bold text-accent leading-none">
+                        {{ site.data.profile.name }}
+                    </h1>
+                </div>
+
+                <!-- Roles Badges with Collapse/Expand -->
+                <div class="mb-4 relative">
+                    <div id="roles-container" class="overflow-hidden transition-all duration-500 ease-in-out"
+                        style="max-height: 52px;">
+                        <div class="flex flex-wrap gap-2">
+                            {% for role in site.data.profile.roles %}
+                            <span
+                                class="px-3 py-1 bg-primary-text/10 border border-primary-text/20 rounded-lg text-primary-text text-sm whitespace-nowrap">
+                                {{ role }}
+                            </span>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Gradient overlay when collapsed -->
+                    <div id="roles-gradient"
+                        class="absolute bottom-6 left-0 right-0 h-8 bg-gradient-to-t from-primary-bg to-transparent pointer-events-none transition-opacity duration-300">
+                    </div>
+
+                    <!-- Chevron button -->
+                    <button id="roles-toggle" onclick="toggleRoles()"
+                        class="w-full flex items-center justify-center pt-2 text-primary-text/50 hover:text-accent transition-colors duration-300">
+                        <i data-lucide="chevron-down" id="roles-chevron"
+                            class="w-5 h-5 transition-transform duration-300"></i>
+                    </button>
+                </div>
+
+                <script>
+                    let rolesExpanded = false;
+
+                    function toggleRoles() {
+                        const container = document.getElementById('roles-container');
+                        const gradient = document.getElementById('roles-gradient');
+                        const chevron = document.getElementById('roles-chevron');
+
+                        if (rolesExpanded) {
+                            // Collapse
+                            container.style.maxHeight = '52px';
+                            gradient.style.opacity = '1';
+                            chevron.style.transform = 'rotate(0deg)';
+                        } else {
+                            // Expand
+                            container.style.maxHeight = container.scrollHeight + 'px';
+                            gradient.style.opacity = '0';
+                            chevron.style.transform = 'rotate(180deg)';
+                        }
+
+                        rolesExpanded = !rolesExpanded;
+                    }
+                </script>
+
+                <!-- Tabs Navigation: Archive Style -->
+                <!-- Tabs Navigation: Archive Style -->
+                <div id="tabs-container"
+                    class="overflow-x-auto scrollbar-hide -mx-6 px-6 pb-1 cursor-grab active:cursor-grabbing"
+                    style="-ms-overflow-style: none; scrollbar-width: none;">
+                    <div class="flex gap-1 relative z-20 w-max pr-6">
+                        <button id="btn-bio" onclick="toggleSection('bio')"
+                            class="px-4 py-3 md:py-2 rounded-t-xl border-t border-x border-primary-text/10 bg-primary-text/5 transition-all duration-300 flex items-center gap-2 text-primary-text/50 whitespace-nowrap select-none">
+                            <i data-lucide="user" class="w-4 h-4"></i>
+                            <span class="text-sm font-bold uppercase tracking-wider">เรื่องชาวบ้าน</span>
+                        </button>
+
+                        <button id="btn-lang" onclick="toggleSection('lang')"
+                            class="px-4 py-3 md:py-2 rounded-t-xl border-t border-x border-primary-text/10 bg-primary-text/5 transition-all duration-300 flex items-center gap-2 text-primary-text/50 whitespace-nowrap select-none">
+                            <i data-lucide="languages" class="w-4 h-4"></i>
+                            <span class="text-sm font-bold uppercase tracking-wider">ภาษา</span>
+                        </button>
+
+                        <button id="btn-edu" onclick="toggleSection('edu')"
+                            class="px-4 py-3 md:py-2 rounded-t-xl border-t border-x border-primary-text/10 bg-primary-text/5 transition-all duration-300 flex items-center gap-2 text-primary-text/50 whitespace-nowrap select-none">
+                            <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                            <span class="text-sm font-bold uppercase tracking-wider">สติปัญญา</span>
+                        </button>
+                    </div>
+                </div>
+
+                <script>
+                    (function () {
+                        const container = document.getElementById('tabs-container');
+                        if (!container) return;
+
+                        // Mouse wheel scroll
+                        container.addEventListener('wheel', (e) => {
+                            if (e.deltaY !== 0) {
+                                e.preventDefault();
+                                container.scrollLeft += e.deltaY;
+                            }
+                        }, { passive: false });
+
+                        // Drag to scroll
+                        let isDown = false;
+                        let startX;
+                        let scrollLeft;
+
+                        container.addEventListener('mousedown', (e) => {
+                            isDown = true;
+                            startX = e.pageX - container.offsetLeft;
+                            scrollLeft = container.scrollLeft;
+                        });
+
+                        container.addEventListener('mouseleave', () => {
+                            isDown = false;
+                        });
+
+                        container.addEventListener('mouseup', () => {
+                            isDown = false;
+                        });
+
+                        container.addEventListener('mousemove', (e) => {
+                            if (!isDown) return;
+                            e.preventDefault();
+                            const x = e.pageX - container.offsetLeft;
+                            const walk = (x - startX) * 2;
+                            container.scrollLeft = scrollLeft - walk;
+                        });
+                    })();
+                </script>
+
+                <!-- Shared Content Display Area (Archive Folder Body) -->
+                <div id="details-container"
+                    class="overflow-hidden bg-primary-text/5 rounded-b-2xl rounded-tr-2xl border border-primary-text/10 text-left -mt-px relative z-10"
+                    style="transition: height 0.5s ease-in-out;">
+                    <div class="p-6 relative">
+                        <!-- Placeholder Content (Shown when nothing is selected) -->
+                        <div id="section-placeholder"
+                            class="flex flex-col items-center justify-center py-6 text-primary-text/20 animate-pulse">
+                            <p class="text-xs uppercase tracking-widest font-bold">ลองกดข้างบนดูสิ!</p>
+                        </div>
+
+                        <!-- About Me Content -->
+                        <div id="section-bio" class="hidden opacity-0 transition-opacity duration-300">
+                            <ul
+                                class="list-none grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-sm text-text-muted py-10">
+                                {% if site.data.profile.full_name %}
+                                <li class="border-l-2 border-accent/30 pl-3">
+                                    <span class="text-accent/60 block text-[10px] uppercase">ชื่อจริง</span>
+                                    {{ site.data.profile.full_name }}
+                                </li>
+                                {% endif %}
+                                {% if site.data.profile.nick_name %}
+                                <li class="border-l-2 border-accent/30 pl-3">
+                                    <span class="text-accent/60 block text-[10px] uppercase">ชื่อเล่น</span>
+                                    {{ site.data.profile.nick_name }}
+                                </li>
+                                {% endif %}
+                                <li class="border-l-2 border-accent/30 pl-3">
+                                    <span class="text-accent/60 block text-[10px] uppercase">เพศ</span>
+                                    {{ site.data.profile.gender }}
+                                </li>
+                                <li class="border-l-2 border-accent/30 pl-3">
+                                    <span class="text-accent/60 block text-[10px] uppercase">สัญชาติ</span>
+                                    {{ site.data.profile.nationality }}
+                                </li>
+                                <li class="border-l-2 border-accent/30 pl-3">
+                                    <span class="text-accent/60 block text-[10px] uppercase">อายุ</span>
+                                    {{ site.data.profile.age }}
+                                </li>
+                                {% if site.data.profile.home_town %}
+                                <li class="border-l-2 border-accent/30 pl-3">
+                                    <span class="text-accent/60 block text-[10px] uppercase">แหล่งกบดาน</span>
+                                    {{ site.data.profile.home_town }}
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+
+                        <!-- Languages Content -->
+                        <div id="section-lang" class="hidden opacity-0 transition-opacity duration-300">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <!-- Fluency -->
+                                {% if site.data.profile.fluency_language %}
+                                <div>
+                                    <div
+                                        class="text-[12px] uppercase tracking-widest text-primary-text/40 mb-2 border-b border-primary-text/10 pb-1">
+                                        คล่องแคล่ว</div>
+                                    <div class="flex flex-wrap gap-2">
+                                        {% for lang in site.data.profile.fluency_language %}
+                                        <span
+                                            class="px-2 py-1 bg-accent/5 rounded border border-accent/10 text-text-muted text-xs italic">{{
+                                            lang }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endif %}
+
+                                <!-- Intermediate -->
+                                {% if site.data.profile.intermediate_language %}
+                                <div>
+                                    <div
+                                        class="text-[12px] uppercase tracking-widest text-primary-text/40 mb-2 border-b border-primary-text/10 pb-1">
+                                        ระดับกลาง</div>
+                                    <div class="flex flex-wrap gap-2">
+                                        {% for lang in site.data.profile.intermediate_language %}
+                                        <span
+                                            class="px-2 py-1 bg-accent/5 rounded border border-accent/10 text-text-muted text-xs italic">{{
+                                            lang }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endif %}
+
+                                <!-- Interested -->
+                                {% if site.data.profile.interest_language %}
+                                <div>
+                                    <div
+                                        class="text-[12px] uppercase tracking-widest text-primary-text/40 mb-2 border-b border-primary-text/10 pb-1">
+                                        สนใจ / เรียนรู้</div>
+                                    <div class="flex flex-wrap gap-2">
+                                        {% for lang in site.data.profile.interest_language %}
+                                        <span
+                                            class="px-2 py-1 bg-primary-bg rounded border border-primary-text/10 text-text-muted/70 text-xs italic">{{
+                                            lang }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <!-- Education Content -->
+                        <div id="section-edu" class="hidden opacity-0 transition-opacity duration-300">
+                            <ul class="list-none space-y-4">
+                                {% for edu in site.data.profile.education %}
+                                <li class="text-text-muted text-sm border-l-2 border-accent/30 pl-3 py-10">
+                                    {{ edu }}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    let currentActiveSection = null;
+                    let isAnimating = false;
+
+                    function updateTabStyles(activeId) {
+                        const sections = ['bio', 'lang', 'edu'];
+                        sections.forEach(s => {
+                            const btn = document.getElementById('btn-' + s);
+                            if (s === activeId) {
+                                btn.classList.remove('text-primary-text/50', 'bg-primary-text/5');
+                                btn.classList.add('text-accent', 'bg-primary-text/5', 'border-b-transparent');
+                            } else {
+                                btn.classList.remove('text-accent', 'border-b-transparent');
+                                btn.classList.add('text-primary-text/50', 'bg-primary-text/5');
+                            }
+                        });
+                    }
+
+                    function getContentHeight(element) {
+                        // Temporarily show element to measure height
+                        const wasHidden = element.classList.contains('hidden');
+                        const prevOpacity = element.style.opacity;
+                        const prevPosition = element.style.position;
+                        const prevVisibility = element.style.visibility;
+                        const prevWidth = element.style.width;
+
+                        element.classList.remove('hidden');
+                        element.style.visibility = 'hidden';
+                        element.style.position = 'absolute';
+                        element.style.width = '100%'; // Force width to match container to verify text wrapping
+                        element.style.opacity = '1';
+
+                        const height = element.scrollHeight;
+
+                        element.style.visibility = prevVisibility;
+                        element.style.position = prevPosition;
+                        element.style.opacity = prevOpacity;
+                        element.style.width = prevWidth;
+                        if (wasHidden) element.classList.add('hidden');
+
+                        return height;
+                    }
+
+                    function toggleSection(id) {
+                        if (isAnimating) return;
+                        isAnimating = true;
+
+                        const container = document.getElementById('details-container');
+                        const innerPadding = 48; // p-6 = 24px * 2
+
+                        // Hide current visible content
+                        const currentId = currentActiveSection || 'placeholder';
+                        const currentContent = document.getElementById('section-' + currentId);
+
+                        // Determine target
+                        const targetId = (currentActiveSection === id) ? 'placeholder' : id;
+                        const targetContent = document.getElementById('section-' + targetId);
+
+                        // Pre-calculate target height before any DOM changes
+                        // Add 20px buffer to ensure no clipping at the bottom
+                        const targetHeight = getContentHeight(targetContent) + innerPadding + 20;
+
+                        // Step 1: Fade out current content
+                        currentContent.style.opacity = '0';
+
+                        setTimeout(() => {
+                            // Step 2: Swap content (hidden states)
+                            currentContent.classList.add('hidden');
+                            targetContent.classList.remove('hidden');
+                            targetContent.style.opacity = '0';
+
+                            // Step 3: Animate height
+                            container.style.height = targetHeight + 'px';
+                            updateTabStyles(targetId === 'placeholder' ? null : targetId);
+
+                            // Step 4: Fade in new content after height transition starts
+                            requestAnimationFrame(() => {
+                                requestAnimationFrame(() => {
+                                    targetContent.style.opacity = '1';
+                                });
+                            });
+
+                            // Step 5: Cleanup
+                            setTimeout(() => {
+                                currentActiveSection = (targetId === 'placeholder') ? null : targetId;
+                                isAnimating = false;
+                            }, 500);
+                        }, 300);
+                    }
+
+                    // Initialize container height on page load
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const placeholder = document.getElementById('section-placeholder');
+                        const container = document.getElementById('details-container');
+                        const innerPadding = 48;
+                        container.style.height = (placeholder.scrollHeight + innerPadding) + 'px';
+                    });
+                </script>
+
+
+            </div>
         </div>
-        <h1
-            class="text-4xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary-text to-accent animate-fade-in-down">
-            {{ site.data.profile.name }}</h1>
-        <p class="max-w-2xl mx-auto text-text-muted leading-relaxed text-lg md:text-xl animate-fade-in-up">{{
-            site.data.profile.bio }}</p>
     </div>
 </section>
+
+<!-- Anchor for the button -->
+<div id="latest-blogs"></div>
 
 <!-- Pinned Blogs Section -->
 {% assign pinned_posts = site.posts | where: "pinned", true %}
 {% if pinned_posts.size > 0 %}
-<section class="py-16 md:py-24 relative">
-    <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-text/30 to-transparent">
-    </div>
+<section class="py-10 md:py-16 relative">
     <div class="container mx-auto px-6 max-w-7xl">
         <div class="flex items-center gap-4 mb-12">
             <h2 class="text-3xl md:text-4xl font-bold">📌 บล็อกปักหมุด</h2>

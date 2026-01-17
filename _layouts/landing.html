@@ -5,10 +5,14 @@ show_nav: false
 
 <div class="flex flex-col items-center min-h-screen px-6 text-center">
 
-    <div class="container max-w-7xl mx-auto">
+    <div class="container max-w-7xl mx-auto pt-16">
+        <div class="animate-fade-in-down">
+            <img src="{{ '/images/kalam-logo.png' | relative_url }}" alt="Kalam Logo"
+                class="w-20 h-20 mx-auto rounded-full">
+        </div>
 
         <h1 class="mb-6 text-4xl animate-fade-in-down">{{ page.title }}</h1>
-        <div class="mb-12 animate-fade-in-up text-center">
+        <div class="mb-2 animate-fade-in-up text-center">
             <div class="text-text-muted text-1xl">
                 {{ page.subtitle }}
             </div>
@@ -45,23 +49,23 @@ show_nav: false
             }) ();
         </script>
 
-        <div class="mb-12 text-center">
+        <div class="mb-8 text-center">
             <a href="{{ '/home.html' | relative_url }}"
-                class="btn btn-primary group flex items-center justify-center gap-3 py-3 px-10 mx-auto w-fit">
-                <div class="relative w-6 h-6">
+                class="group flex flex-col items-center gap-3 mx-auto w-fit text-primary-text hover:text-accent transition-all duration-300">
+                <div class="relative w-20 h-20">
                     <i data-lucide="door-closed"
-                        class="absolute inset-0 transition-opacity duration-300 group-hover:opacity-0"></i>
+                        class="absolute inset-0 w-full h-full transition-opacity duration-300 group-hover:opacity-0"></i>
                     <i data-lucide="door-open"
-                        class="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"></i>
+                        class="absolute inset-0 w-full h-full transition-opacity duration-300 opacity-0 group-hover:opacity-100"></i>
                 </div>
-                <span>เข้าสู่เว็บไซต์</span>
+                <span class="text-xs tracking-widest uppercase">เข้าสู่เว็บไซต์</span>
             </a>
         </div>
 
         {% assign announcement_post = site.posts | where: "announcement", true | first %}
         {% if announcement_post %}
         <div class="flex flex-col items-center mb-8 animate-fade-in-down">
-            <div class="h-px bg-gradient-to-r from-transparent via-primary-text/30 to-transparent w-full max-w-md mb-4">
+            <div class="h-px bg-gradient-to-r from-transparent via-primary-text/30 to-transparent w-full max-w mb-4">
             </div>
 
             <a href="{{ announcement_post.url | relative_url }}" class="group inline-block">
@@ -76,7 +80,7 @@ show_nav: false
                 </div>
             </a>
 
-            <div class="h-px bg-gradient-to-r from-transparent via-primary-text/30 to-transparent w-full max-w-md mt-8">
+            <div class="h-px bg-gradient-to-r from-transparent via-primary-text/30 to-transparent w-full max-w mt-8">
             </div>
         </div>
         {% endif %}
@@ -100,6 +104,12 @@ show_nav: false
                 </div>
             </a>
             {% endfor %}
+        </div>
+
+        <div class="mt-8 mb-16 animate-fade-in-up">
+            <img src="{{ '/images/qr.svg' | relative_url }}" alt="QR Code" class="w-32 h-32 mx-auto">
+            https://www.kalampl.ee/
+
         </div>
 
     </div>

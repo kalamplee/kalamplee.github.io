@@ -33,7 +33,24 @@
     }
 
     .nav-link {
-        @apply font-semibold px-4 py-2 rounded transition-all duration-300 hover:bg-card-hover;
+        @apply font-semibold px-4 py-2 rounded transition-all duration-300 hover:text-accent;
+    }
+
+    .nav-link [data-lucide] {
+        @apply transition-all duration-300;
+        fill: transparent;
+    }
+
+    .nav-link:hover [data-lucide] {
+        fill: currentColor;
+    }
+
+    .nav-link-active {
+        @apply text-accent;
+    }
+
+    .nav-link-active [data-lucide] {
+        fill: currentColor;
     }
 
     .contact-item {
@@ -79,5 +96,42 @@
 
     .filter-btn-active {
         @apply bg-accent border-accent text-primary-bg;
+    }
+
+    /* Post Content List Styles */
+    .prose ul {
+        @apply list-disc list-outside ml-6 mb-6;
+    }
+
+    .prose ol {
+        @apply list-decimal list-outside ml-6 mb-6;
+    }
+
+    .prose li {
+        @apply mb-2 pl-2;
+    }
+
+    .prose li::marker {
+        @apply text-accent font-bold;
+    }
+
+    .prose a {
+        @apply text-accent italic hover:underline transition-all duration-300;
+    }
+
+    .prose h1,
+    .prose h2,
+    .prose h3 {
+        @apply mb-6 mt-10;
+    }
+
+    /* Hide scrollbar but allow scrolling */
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
     }
 }

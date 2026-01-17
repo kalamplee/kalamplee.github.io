@@ -1,5 +1,5 @@
 title: Kalampl.ee
-email: yourname@example.com
+email: [EMAIL_ADDRESS]
 description: >-
   เว็บไซต์แสดงผลงานและบล็อกส่วนตัว
 baseurl: ""
@@ -27,7 +27,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "Your Name"
+      author: "Mr.Kalamplee"
 
 # Exclude from processing
 exclude:

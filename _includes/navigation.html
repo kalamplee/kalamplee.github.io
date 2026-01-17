@@ -5,18 +5,35 @@
 
         <ul class="flex md:gap-8 lg:gap-12 list-none items-center">
             <li>
-                <a href="{{ '/home.html' | relative_url }}" class="nav-link flex items-center" title="หน้าหลัก">
+                {% assign is_home_active = false %}
+                {% if page.url == '/home.html' or page.url == '/home' %}
+                {% assign is_home_active = true %}
+                {% endif %}
+                <a href="{{ '/home.html' | relative_url }}"
+                    class="nav-link flex items-center {% if is_home_active %}nav-link-active{% endif %}"
+                    title="หน้าหลัก">
                     <i data-lucide="home" class="w-6 h-6"></i>
                 </a>
             </li>
             <li>
-                <a href="{{ '/blogs.html' | relative_url }}" class="nav-link flex items-center" title="บล็อก">
-                    <i data-lucide="book-open" class="w-6 h-6"></i>
+                {% assign is_blog_active = false %}
+                {% if page.url == '/blogs.html' or page.url == '/blogs' or page.layout == 'post' %}
+                {% assign is_blog_active = true %}
+                {% endif %}
+                <a href="{{ '/blogs.html' | relative_url }}"
+                    class="nav-link flex items-center {% if is_blog_active %}nav-link-active{% endif %}" title="บล็อก">
+                    <i data-lucide="sticky-note" class="w-6 h-6"></i>
                 </a>
             </li>
             <li>
-                <a href="{{ '/' | relative_url }}" class="nav-link flex items-center" title="ติดต่อ">
-                    <i data-lucide="message-circle" class="w-6 h-6"></i>
+                {% assign is_contact_active = false %}
+                {% if page.url == '/' or page.layout == 'landing' %}
+                {% assign is_contact_active = true %}
+                {% endif %}
+                <a href="{{ '/' | relative_url }}"
+                    class="nav-link flex items-center {% if is_contact_active %}nav-link-active{% endif %}"
+                    title="ติดต่อ">
+                    <i data-lucide="contact" class="w-6 h-6"></i>
                 </a>
             </li>
         </ul>

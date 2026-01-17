@@ -1,16 +1,31 @@
 name: "Mr.Kalamplee"
-bio: "นักพัฒนาเว็บและนักเขียนเนื้อหา ผู้หลงใหลในเทคโนโลยีและการเรียนรู้สิ่งใหม่ ๆ"
-email: "yourname@example.com"
-image: "images/profile.jpg"
-socials:
-  facebook: "https://facebook.com/yourprofile"
-  twitter: "https://twitter.com/yourhandle"
-  youtube: "https://youtube.com/@yourchannel"
-  instagram: "https://instagram.com/yourhandle"
+email: "watcharawee.sripiboon@gmail.com"
+image: "images/kalam-logo.png"
+full_name: "Watcharawee Sripiboon (วัชรวีร์ ศรีพิบูลย์)"
+nick_name: "Nes (เนส)"
+home_town: "Roi-et, Thailand"
+nationality: "🇹🇭"
+age: "20+"
+gender: "♂️"
+education:
+  - "2025: Bachelor of Science in Information Technology, KMITL (First Class Honours)"
+fluency_language:
+  - "🇹🇭 ไทย"
+  - "🇬🇧 English"
+intermediate_language:
+  - "🇯🇵 日本語"
+interest_language:
+  - "🇳🇱 Nederlands"
+  - "🇩🇪 Deutsch"
+  - "🇨🇳 中文"
+  - "🦅 LATINA"
+  - "🙂 Toki Pona (Conlang)"
 
 roles:
   - "🎮 Game Developer"
   - "🎨 Artist"
   - "✍️ Writer"
   - "🤡 Memer"
+  - "🌍 Language Enthusiast"
+  - "🎥 YouTuber"
   - "💅 Crossdresser"
