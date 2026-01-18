@@ -369,13 +369,32 @@ layout: default
 {% if pinned_posts.size > 0 %}
 <section class="py-10 md:py-16 relative">
     <div class="container mx-auto px-6 max-w-7xl">
-        <div class="flex items-center gap-4 mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold">📌 บล็อกปักหมุด</h2>
-            <div class="h-px flex-grow bg-primary-text/30"></div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Mobile: Vertical Stack | Desktop: Grid -->
+        <div
+            class="relative max-w-3xl md:max-w-none mx-auto space-y-12 md:space-y-0 pb-24 md:pb-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8">
             {% for post in pinned_posts %}
-            {% include blog-card.html post=post %}
+            {% assign rotation = forloop.index | modulo: 3 | minus: 1 | times: 1.5 %}
+            {% assign offset = forloop.index | times: 15 %}
+            {% assign hover_rotate = forloop.index | modulo: 2 | times: 2 | minus: 1 | times: 2 %} <!-- -2 or 2 -->
+
+            <div class="group sticky md:static transition-none"
+                style="top: {{ 120 | plus: offset }}px; z-index: {{ forloop.index }};">
+                <div class="transform md:transform-none transition-transform duration-300 
+                            shadow-[0_10px_30px_-5px_rgba(0,0,0,0.5)] md:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]
+                            hover:shadow-[0_0_30px_rgba(254,213,118,0.3)]
+                            border border-accent/50 rounded-xl
+                            hover:-translate-y-4 md:hover:-translate-y-3
+                            hover:rotate-[{{ hover_rotate }}deg] relative z-20 group-hover:z-30"
+                    style="transform: rotate({{ rotation }}deg);">
+                    <!-- Glow effect background -->
+                    <div
+                        class="absolute -inset-1 bg-accent/20 blur-md opacity-0 group-hover:opacity-70 transition-opacity duration-500 rounded-xl -z-10">
+                    </div>
+                    <div class="bg-card-bg rounded-xl overflow-hidden h-full">
+                        {% include blog-card.html post=post %}
+                    </div>
+                </div>
+            </div>
             {% endfor %}
         </div>
     </div>
@@ -384,20 +403,31 @@ layout: default
 
 <!-- Latest Blogs Section -->
 {% assign latest_posts = site.posts | where_exp: "post", "post.pinned != true" | sort: "date" | reverse | limit: 6 %}
-<section class="py-16 md:py-24 bg-card-bg/5">
-    <div class="container mx-auto px-6 max-w-7xl">
-        <div class="flex items-center gap-4 mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold">📝 บล็อกล่าสุด</h2>
-            <div class="h-px flex-grow bg-primary-text/30"></div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<section class="min-h-[50vh]">
+    <div class="container mx-auto px-6 max-w-7xl mb-16">
+        <!-- Mobile: Vertical Stack | Desktop: Grid -->
+        <div
+            class="relative max-w-3xl md:max-w-none mx-auto space-y-12 md:space-y-0 pb-24 md:pb-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8">
             {% for post in latest_posts %}
-            {% include blog-card.html post=post %}
+            {% assign rotation = forloop.index | modulo: 3 | minus: 1 | times: 1.5 %}
+            {% assign offset = forloop.index | times: 15 %}
+            {% assign hover_rotate = forloop.index | modulo: 2 | times: 2 | minus: 1 | times: 2 %}
+
+            <div class="group sticky md:static transition-none"
+                style="top: {{ 120 | plus: offset }}px; z-index: {{ forloop.index }};">
+                <div class="transform md:transform-none transition-transform duration-300 shadow-xl md:shadow-none md:hover:shadow-lg
+                            hover:-translate-y-4 md:hover:-translate-y-2
+                            hover:rotate-[{{ hover_rotate }}deg]" style="transform: rotate({{ rotation }}deg);">
+                    {% include blog-card.html post=post %}
+                </div>
+            </div>
             {% endfor %}
         </div>
 
-        <div class="text-center mt-16">
-            <a href="{{ '/blogs.html' | relative_url }}" class="btn btn-primary text-lg px-10 py-4">ดูบล็อกทั้งหมด</a>
+        <div class="text-center mt-24 md:mt-16 relative z-50">
+            <a href="{{ '/blogs.html' | relative_url }}"
+                class="btn btn-primary text-lg px-10 py-4 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
+                <div class="flex items-center gap-2"><i data-lucide="sticky-note"></i> <span>ดูบล็อกทั้งหมด</span></div></a>
         </div>
     </div>
 </section>

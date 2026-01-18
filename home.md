@@ -1,5 +1,5 @@
 ---
 layout: home
-title: "หน้าหลัก"
+title: "Home"
 permalink: /home.html
 ---

@@ -1,5 +1,5 @@
 ---
 layout: blogs
-title: "บล็อกทั้งหมด"
+title: "Blogs"
 permalink: /blogs.html
 ---

@@ -2,9 +2,8 @@
 layout: post
 title: "การเริ่มต้นใช้ GitHub Pages"
 date: 2025-11-25
-categories: [เทคโนโลยี, การพัฒนาเว็บ]
+categories: [tech]
 excerpt: "เรียนรู้วิธีการสร้างและเผยแพร่เว็บไซต์ส่วนตัวด้วย GitHub Pages อย่างง่ายดาย"
-pinned: true
 ---
 
 GitHub Pages เป็นบริการฟรีจาก GitHub ที่ให้คุณสามารถโฮสต์เว็บไซต์ static ได้โดยตรงจาก repository

@@ -19,7 +19,8 @@ layout: default
             {% if page.categories %}
             <div class="flex flex-wrap justify-center gap-2">
                 {% for category in page.categories %}
-                <span class="bg-accent/20 text-accent px-3 py-1 rounded text-sm">{{ category }}</span>
+                <span class=" text-primary-text border border-primary-text px-3 py-1 rounded-3xl text-sm">{{ category
+                    }}</span>
                 {% endfor %}
             </div>
             {% endif %}
@@ -38,10 +39,30 @@ layout: default
             {{ content }}
         </div>
 
+
         <!-- Back to blogs -->
-        <div class="mt-12 pt-8 border-t-2 border-primary-text">
-            <a href="{{ '/blogs.html' | relative_url }}" class="text-accent hover:underline">←
-                กลับไปหน้าบล็อกทั้งหมด</a>
+        <div class="mt-6 pt-6 text-center">
+            <div class="h-px bg-gradient-to-r from-transparent via-primary-text to-transparent w-full max-w mb-4">
+            </div>
+            <a href="{{ '/blogs.html' | relative_url }}" class="text-accent flex items-center">
+                <i data-lucide="chevron-left" class=""></i>
+                <span>กลับไปหน้าบล็อกทั้งหมด</span>
+            </a>
         </div>
     </div>
+    </div>
 </article>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const checkboxes = document.querySelectorAll('.task-list-item-checkbox');
+        checkboxes.forEach(checkbox => {
+            const span = document.createElement('span');
+            span.className = 'custom-checkbox';
+            span.textContent = checkbox.checked ? '🔴' : '⭕';
+
+            // Insert before the checkbox
+            checkbox.parentNode.insertBefore(span, checkbox);
+        });
+    });
+</script>

@@ -14,8 +14,8 @@ module.exports = {
         'primary-text': '#7fe599',
         'accent': '#fed576',
         'text-muted': '#5ca876',
-        'card-bg': 'rgba(127, 229, 153, 0.05)',
-        'card-hover': 'rgba(127, 229, 153, 0.1)',
+        'card-bg': '#060C38',
+        'card-hover': '#0C173D',
       },
       fontFamily: {
         'k2d': ['K2D', 'sans-serif'],

@@ -87,11 +87,11 @@
     }
 
     .blog-card {
-        @apply bg-card-bg border-2 border-primary-text rounded-xl overflow-hidden transition-all duration-300 hover:border-accent hover:shadow-lg hover:-translate-y-1 cursor-pointer;
+        @apply bg-card-bg rounded-xl overflow-hidden transition-all duration-300 hover:border-accent hover:shadow-lg hover:-translate-y-1 cursor-pointer;
     }
 
     .filter-btn {
-        @apply px-4 py-2 bg-transparent border-2 border-primary-text rounded text-primary-text text-sm cursor-pointer transition-all duration-150 hover:bg-accent hover:border-accent hover:text-primary-bg;
+        @apply px-4 py-2 bg-transparent border-2 border-primary-text rounded-3xl text-primary-text text-sm cursor-pointer transition-all duration-150 hover:bg-accent hover:border-accent hover:text-primary-bg;
     }
 
     .filter-btn-active {
@@ -133,5 +133,26 @@
 
     .scrollbar-hide::-webkit-scrollbar {
         display: none;
+    }
+
+    /* Custom Task List Styles */
+    .prose ul.task-list {
+        @apply list-none ml-0 pl-0;
+    }
+
+    .prose li.task-list-item {
+        @apply flex items-start gap-3 pl-0 mb-3;
+    }
+
+    .prose li.task-list-item::marker {
+        @apply content-none;
+    }
+
+    .prose .task-list-item-checkbox {
+        @apply hidden;
+    }
+
+    .custom-checkbox {
+        @apply text-xl leading-none select-none mt-0.5 min-w-[1.25rem];
     }
 }
