@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "การเริ่มต้นใช้ GitHub Pages"
-date: 2025-11-25
+date: 2026-01-17
 categories: [tech]
 excerpt: "เรียนรู้วิธีการสร้างและเผยแพร่เว็บไซต์ส่วนตัวด้วย GitHub Pages อย่างง่ายดาย"
 ---
