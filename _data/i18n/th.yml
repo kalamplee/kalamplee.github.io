@@ -1,0 +1,40 @@
+# Thai UI Translations
+nav:
+  home: "หน้าหลัก"
+  blog: "บล็อก"
+  contact: "ติดต่อ"
+
+landing:
+  enter_site: "เข้าสู่เว็บไซต์"
+  announcement: "ประกาศสำคัญ"
+  contacts_title: "My Contacts"
+
+home:
+  tabs:
+    bio: "เรื่องชาวบ้าน"
+    lang: "ภาษา"
+    edu: "สติปัญญา"
+    hint: "ลองกดข้างบนดูสิ!"
+  bio:
+    full_name: "ชื่อจริง"
+    nickname: "ชื่อเล่น"
+    gender: "เพศ"
+    nationality: "สัญชาติ"
+    age: "อายุ"
+    hometown: "แหล่งกบดาน"
+  lang:
+    fluent: "คล่องแคล่ว"
+    intermediate: "ระดับกลาง"
+    interested: "สนใจ / เรียนรู้"
+  view_all_blogs: "ดูบล็อกทั้งหมด"
+
+blogs:
+  search_placeholder: "ค้นหาบล็อก..."
+  filter_all: "ทั้งหมด"
+  no_results: "ไม่พบบล็อกที่ตรงกับเงื่อนไข"
+
+post:
+  back_to_blogs: "กลับไปหน้าบล็อกทั้งหมด"
+
+lang_switcher:
+  label: "ภาษา"

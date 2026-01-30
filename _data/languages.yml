@@ -1,0 +1,17 @@
+# Language configuration for the site
+# Add new languages here - the system will automatically pick them up
+languages:
+  - code: th
+    name: "ไทย"
+    flag: "🇹🇭"
+  - code: en
+    name: "English"
+    flag: "🇬🇧"
+  - code: ja
+    name: "日本語"
+    flag: "🇯🇵"
+  - code: la
+    name: "LINGVA LATINA"
+    flag: "🦅"
+
+default: th

@@ -57,7 +57,8 @@ show_nav: false
                     <i data-lucide="door-open"
                         class="absolute inset-0 w-full h-full transition-opacity duration-300 opacity-0 group-hover:opacity-100"></i>
                 </div>
-                <span class="text-xl font-bold tracking-widest uppercase">เข้าสู่เว็บไซต์</span>
+                <span class="text-xl font-bold tracking-widest uppercase"
+                    data-i18n="landing.enter_site">เข้าสู่เว็บไซต์</span>
             </a>
         </div>
 
@@ -71,7 +72,7 @@ show_nav: false
                 <div class="flex flex-col items-center">
                     <div class="flex items-center gap-2 text-primary-text font-bold mb-1">
                         <i data-lucide="megaphone" class="w-5 h-5 animate-bounce"></i>
-                        <span>ประกาศสำคัญ</span>
+                        <span data-i18n="landing.announcement">ประกาศสำคัญ</span>
                     </div>
                     <h2 class="text-accent text-2xl font-bold group-hover:brightness-110 transition-all mt-4">
                         {{ announcement_post.title }}
@@ -85,7 +86,7 @@ show_nav: false
         {% endif %}
 
         <div class="mb-6">
-            <h3 class="text-primary-text font-bold text-xl">My Contacts</h3>
+            <h3 class="text-primary-text font-bold text-xl" data-i18n="landing.contacts_title">My Contacts</h3>
         </div>
         <div class="flex flex-wrap justify-center gap-6 md:gap-8 mx-auto mb-12">
             {% for contact in site.data.contacts %}

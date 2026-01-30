@@ -1,0 +1,40 @@
+# Latin UI Translations
+nav:
+  home: "DOMVS"
+  blog: "ACTA"
+  contact: "CONTACTVS"
+
+landing:
+  enter_site: "INTRARE SITVM"
+  announcement: "NVNTIVS"
+  contacts_title: "CONTACTVS MEI"
+
+home:
+  tabs:
+    bio: "DE ME"
+    lang: "LINGVAE"
+    edu: "EDVCATIO"
+    hint: "TABELLAM SVPERIVS PREME!"
+  bio:
+    full_name: "NOMEN PLENVM"
+    nickname: "COGNOMEN"
+    gender: "GENVS"
+    nationality: "NATIO"
+    age: "AETAS"
+    hometown: "PATRIA"
+  lang:
+    fluent: "FLVENS"
+    intermediate: "INTERMEDIA"
+    interested: "INTEREST / DISCENS"
+  view_all_blogs: "OMNIA ACTA VIDERE"
+
+blogs:
+  search_placeholder: "QVAERERE ACTA..."
+  filter_all: "OMNIA"
+  no_results: "NVLLA ACTA INVENTA"
+
+post:
+  back_to_blogs: "REDIRE AD OMNIA ACTA"
+
+lang_switcher:
+  label: "LINGVA"

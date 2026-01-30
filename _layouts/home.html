@@ -83,19 +83,22 @@ layout: default
                         <button id="btn-bio" onclick="toggleSection('bio')"
                             class="px-4 py-3 md:py-2 rounded-t-xl border-t border-x border-primary-text/10 bg-primary-text/5 transition-all duration-300 flex items-center gap-2 text-primary-text/50 whitespace-nowrap select-none">
                             <i data-lucide="user" class="w-4 h-4"></i>
-                            <span class="text-sm font-bold uppercase tracking-wider">เรื่องชาวบ้าน</span>
+                            <span class="text-sm font-bold uppercase tracking-wider"
+                                data-i18n="home.tabs.bio">เรื่องชาวบ้าน</span>
                         </button>
 
                         <button id="btn-lang" onclick="toggleSection('lang')"
                             class="px-4 py-3 md:py-2 rounded-t-xl border-t border-x border-primary-text/10 bg-primary-text/5 transition-all duration-300 flex items-center gap-2 text-primary-text/50 whitespace-nowrap select-none">
                             <i data-lucide="languages" class="w-4 h-4"></i>
-                            <span class="text-sm font-bold uppercase tracking-wider">ภาษา</span>
+                            <span class="text-sm font-bold uppercase tracking-wider"
+                                data-i18n="home.tabs.lang">ภาษา</span>
                         </button>
 
                         <button id="btn-edu" onclick="toggleSection('edu')"
                             class="px-4 py-3 md:py-2 rounded-t-xl border-t border-x border-primary-text/10 bg-primary-text/5 transition-all duration-300 flex items-center gap-2 text-primary-text/50 whitespace-nowrap select-none">
                             <i data-lucide="graduation-cap" class="w-4 h-4"></i>
-                            <span class="text-sm font-bold uppercase tracking-wider">สติปัญญา</span>
+                            <span class="text-sm font-bold uppercase tracking-wider"
+                                data-i18n="home.tabs.edu">สติปัญญา</span>
                         </button>
                     </div>
                 </div>
@@ -150,7 +153,8 @@ layout: default
                         <!-- Placeholder Content (Shown when nothing is selected) -->
                         <div id="section-placeholder"
                             class="flex flex-col items-center justify-center py-6 text-primary-text/20 animate-pulse">
-                            <p class="text-xs uppercase tracking-widest font-bold">ลองกดข้างบนดูสิ!</p>
+                            <p class="text-xs uppercase tracking-widest font-bold" data-i18n="home.tabs.hint">
+                                ลองกดข้างบนดูสิ!</p>
                         </div>
 
                         <!-- About Me Content -->
@@ -159,31 +163,37 @@ layout: default
                                 class="list-none grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-sm text-text-muted py-10">
                                 {% if site.data.profile.full_name %}
                                 <li class="border-l-2 border-accent/30 pl-3">
-                                    <span class="text-accent/60 block text-[10px] uppercase">ชื่อจริง</span>
+                                    <span class="text-accent/60 block text-[10px] uppercase"
+                                        data-i18n="home.bio.full_name">ชื่อจริง</span>
                                     {{ site.data.profile.full_name }}
                                 </li>
                                 {% endif %}
                                 {% if site.data.profile.nick_name %}
                                 <li class="border-l-2 border-accent/30 pl-3">
-                                    <span class="text-accent/60 block text-[10px] uppercase">ชื่อเล่น</span>
+                                    <span class="text-accent/60 block text-[10px] uppercase"
+                                        data-i18n="home.bio.nickname">ชื่อเล่น</span>
                                     {{ site.data.profile.nick_name }}
                                 </li>
                                 {% endif %}
                                 <li class="border-l-2 border-accent/30 pl-3">
-                                    <span class="text-accent/60 block text-[10px] uppercase">เพศ</span>
+                                    <span class="text-accent/60 block text-[10px] uppercase"
+                                        data-i18n="home.bio.gender">เพศ</span>
                                     {{ site.data.profile.gender }}
                                 </li>
                                 <li class="border-l-2 border-accent/30 pl-3">
-                                    <span class="text-accent/60 block text-[10px] uppercase">สัญชาติ</span>
+                                    <span class="text-accent/60 block text-[10px] uppercase"
+                                        data-i18n="home.bio.nationality">สัญชาติ</span>
                                     {{ site.data.profile.nationality }}
                                 </li>
                                 <li class="border-l-2 border-accent/30 pl-3">
-                                    <span class="text-accent/60 block text-[10px] uppercase">อายุ</span>
+                                    <span class="text-accent/60 block text-[10px] uppercase"
+                                        data-i18n="home.bio.age">อายุ</span>
                                     {{ site.data.profile.age }}
                                 </li>
                                 {% if site.data.profile.home_town %}
                                 <li class="border-l-2 border-accent/30 pl-3">
-                                    <span class="text-accent/60 block text-[10px] uppercase">แหล่งกบดาน</span>
+                                    <span class="text-accent/60 block text-[10px] uppercase"
+                                        data-i18n="home.bio.hometown">แหล่งกบดาน</span>
                                     {{ site.data.profile.home_town }}
                                 </li>
                                 {% endif %}
@@ -196,9 +206,8 @@ layout: default
                                 <!-- Fluency -->
                                 {% if site.data.profile.fluency_language %}
                                 <div>
-                                    <div
-                                        class="text-[12px] uppercase tracking-widest text-primary-text/40 mb-2 border-b border-primary-text/10 pb-1">
-                                        คล่องแคล่ว</div>
+                                    <div class="text-[12px] uppercase tracking-widest text-primary-text/40 mb-2 border-b border-primary-text/10 pb-1"
+                                        data-i18n="home.lang.fluent">คล่องแคล่ว</div>
                                     <div class="flex flex-wrap gap-2">
                                         {% for lang in site.data.profile.fluency_language %}
                                         <span
@@ -212,9 +221,8 @@ layout: default
                                 <!-- Intermediate -->
                                 {% if site.data.profile.intermediate_language %}
                                 <div>
-                                    <div
-                                        class="text-[12px] uppercase tracking-widest text-primary-text/40 mb-2 border-b border-primary-text/10 pb-1">
-                                        ระดับกลาง</div>
+                                    <div class="text-[12px] uppercase tracking-widest text-primary-text/40 mb-2 border-b border-primary-text/10 pb-1"
+                                        data-i18n="home.lang.intermediate">ระดับกลาง</div>
                                     <div class="flex flex-wrap gap-2">
                                         {% for lang in site.data.profile.intermediate_language %}
                                         <span
@@ -228,9 +236,8 @@ layout: default
                                 <!-- Interested -->
                                 {% if site.data.profile.interest_language %}
                                 <div>
-                                    <div
-                                        class="text-[12px] uppercase tracking-widest text-primary-text/40 mb-2 border-b border-primary-text/10 pb-1">
-                                        สนใจ / เรียนรู้</div>
+                                    <div class="text-[12px] uppercase tracking-widest text-primary-text/40 mb-2 border-b border-primary-text/10 pb-1"
+                                        data-i18n="home.lang.interested">สนใจ / เรียนรู้</div>
                                     <div class="flex flex-wrap gap-2">
                                         {% for lang in site.data.profile.interest_language %}
                                         <span
@@ -427,7 +434,9 @@ layout: default
         <div class="text-center mt-24 md:mt-16 relative z-50">
             <a href="{{ '/blogs.html' | relative_url }}"
                 class="btn btn-primary text-lg px-10 py-4 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all">
-                <div class="flex items-center gap-2"><i data-lucide="sticky-note"></i> <span>ดูบล็อกทั้งหมด</span></div></a>
+                <div class="flex items-center gap-2"><i data-lucide="sticky-note"></i> <span
+                        data-i18n="home.view_all_blogs">ดูบล็อกทั้งหมด</span></div>
+            </a>
         </div>
     </div>
 </section>

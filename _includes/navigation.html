@@ -3,39 +3,62 @@
         <a href="{{ '/' | relative_url }}"
             class="text-2xl font-bold text-accent hover:text-primary-text transition-colors">Kalampl.ee</a>
 
-        <ul class="flex md:gap-8 lg:gap-12 list-none items-center">
-            <li>
-                {% assign is_home_active = false %}
-                {% if page.url == '/home.html' or page.url == '/home' %}
-                {% assign is_home_active = true %}
-                {% endif %}
-                <a href="{{ '/home.html' | relative_url }}"
-                    class="nav-link flex items-center {% if is_home_active %}nav-link-active{% endif %}"
-                    title="หน้าหลัก">
-                    <i data-lucide="home" class="w-6 h-6"></i>
-                </a>
-            </li>
-            <li>
-                {% assign is_blog_active = false %}
-                {% if page.url == '/blogs.html' or page.url == '/blogs' or page.layout == 'post' %}
-                {% assign is_blog_active = true %}
-                {% endif %}
-                <a href="{{ '/blogs.html' | relative_url }}"
-                    class="nav-link flex items-center {% if is_blog_active %}nav-link-active{% endif %}" title="บล็อก">
-                    <i data-lucide="sticky-note" class="w-6 h-6"></i>
-                </a>
-            </li>
-            <li>
-                {% assign is_contact_active = false %}
-                {% if page.url == '/' or page.layout == 'landing' %}
-                {% assign is_contact_active = true %}
-                {% endif %}
-                <a href="{{ '/' | relative_url }}"
-                    class="nav-link flex items-center {% if is_contact_active %}nav-link-active{% endif %}"
-                    title="ติดต่อ">
-                    <i data-lucide="contact" class="w-6 h-6"></i>
-                </a>
-            </li>
-        </ul>
+        <div class="flex items-center gap-4 md:gap-8">
+            <ul class="flex md:gap-8 lg:gap-12 list-none items-center">
+                <li>
+                    {% assign is_home_active = false %}
+                    {% if page.url == '/home.html' or page.url == '/home' %}
+                    {% assign is_home_active = true %}
+                    {% endif %}
+                    <a href="{{ '/home.html' | relative_url }}"
+                        class="nav-link flex items-center {% if is_home_active %}nav-link-active{% endif %}"
+                        data-i18n-title="nav.home" title="หน้าหลัก">
+                        <i data-lucide="home" class="w-6 h-6"></i>
+                    </a>
+                </li>
+                <li>
+                    {% assign is_blog_active = false %}
+                    {% if page.url == '/blogs.html' or page.url == '/blogs' or page.layout == 'post' %}
+                    {% assign is_blog_active = true %}
+                    {% endif %}
+                    <a href="{{ '/blogs.html' | relative_url }}"
+                        class="nav-link flex items-center {% if is_blog_active %}nav-link-active{% endif %}"
+                        data-i18n-title="nav.blog" title="บล็อก">
+                        <i data-lucide="sticky-note" class="w-6 h-6"></i>
+                    </a>
+                </li>
+                <li>
+                    {% assign is_contact_active = false %}
+                    {% if page.url == '/' or page.layout == 'landing' %}
+                    {% assign is_contact_active = true %}
+                    {% endif %}
+                    <a href="{{ '/' | relative_url }}"
+                        class="nav-link flex items-center {% if is_contact_active %}nav-link-active{% endif %}"
+                        data-i18n-title="nav.contact" title="ติดต่อ">
+                        <i data-lucide="contact" class="w-6 h-6"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Language Switcher -->
+            <div class="relative lang-dropdown">
+                <button
+                    class="lang-dropdown-toggle lang-dropdown-btn flex items-center gap-2 px-3 py-2 rounded-lg text-primary-text/70 hover:text-primary-text hover:bg-primary-text/10 transition-colors text-sm whitespace-nowrap">
+                    <span class="text-2xl leading-none js-lang-flag">🇹🇭</span>
+                    <span class="hidden md:inline self-center js-lang-name">ไทย</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                </button>
+                <div
+                    class="lang-dropdown-menu hidden absolute right-0 top-full mt-2 bg-card-bg border border-primary-text/20 rounded-lg shadow-xl overflow-hidden w-max min-w-[140px] z-50">
+                    {% for lang in site.data.languages.languages %}
+                    <button data-lang-switch="{{ lang.code }}"
+                        class="w-full px-4 py-3 text-left hover:bg-primary-text/10 transition-colors flex items-center gap-3 text-sm whitespace-nowrap {% if lang.code == 'th' %}lang-active{% endif %}">
+                        <span class="text-2xl leading-none">{{ lang.flag }}</span>
+                        <span class="self-center">{{ lang.name }}</span>
+                    </button>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </div>
 </nav>

@@ -1,0 +1,40 @@
+# English UI Translations
+nav:
+  home: "Home"
+  blog: "Blog"
+  contact: "Contact"
+
+landing:
+  enter_site: "Enter Site"
+  announcement: "Announcement"
+  contacts_title: "My Contacts"
+
+home:
+  tabs:
+    bio: "About Me"
+    lang: "Languages"
+    edu: "Education"
+    hint: "Click a tab above!"
+  bio:
+    full_name: "Full Name"
+    nickname: "Nickname"
+    gender: "Gender"
+    nationality: "Nationality"
+    age: "Age"
+    hometown: "Hometown"
+  lang:
+    fluent: "Fluent"
+    intermediate: "Intermediate"
+    interested: "Interested / Learning"
+  view_all_blogs: "View All Blogs"
+
+blogs:
+  search_placeholder: "Search blogs..."
+  filter_all: "All"
+  no_results: "No blogs match your criteria"
+
+post:
+  back_to_blogs: "Back to All Blogs"
+
+lang_switcher:
+  label: "Language"

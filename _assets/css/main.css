@@ -98,6 +98,31 @@
         @apply bg-accent border-accent text-primary-bg;
     }
 
+    /* Language Switcher Styles */
+    .lang-active {
+        @apply bg-accent/20 text-accent;
+    }
+
+    .lang-dropdown-menu {
+        @apply animate-fadeIn;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-8px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fadeIn {
+        animation: fadeIn 0.2s ease-out;
+    }
+
     /* Post Content List Styles */
     .prose ul {
         @apply list-disc list-outside ml-6 mb-6;

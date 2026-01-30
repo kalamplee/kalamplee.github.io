@@ -24,6 +24,18 @@
 
     {% seo %}
     {% feed_meta %}
+
+    <!-- Language Translations Data -->
+    <script>
+        window.siteTranslations = {
+            th: {{ site.data.i18n.th | jsonify }},
+            en: {{ site.data.i18n.en | jsonify }},
+            ja: {{ site.data.i18n.ja | jsonify }},
+            la: {{ site.data.i18n.la | jsonify }}
+        };
+        window.siteLangConfig = {{ site.data.languages.languages | jsonify }};
+        window.siteDefaultLang = '{{ site.data.languages.default | default: "th" }}';
+    </script>
 </head>
 
 <body>
@@ -64,6 +76,9 @@
 
     <!-- Custom Animations -->
     <script src="{{ '/assets/js/animations.js' | relative_url }}"></script>
+
+    <!-- Language Switcher -->
+    <script src="{{ '/assets/js/lang.js' | relative_url }}"></script>
 </body>
 
 </html>

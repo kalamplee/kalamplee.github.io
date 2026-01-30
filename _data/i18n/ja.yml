@@ -1,0 +1,40 @@
+# Japanese UI Translations
+nav:
+  home: "ホーム"
+  blog: "ブログ"
+  contact: "連絡先"
+
+landing:
+  enter_site: "サイトに入る"
+  announcement: "お知らせ"
+  contacts_title: "私の連絡先"
+
+home:
+  tabs:
+    bio: "私について"
+    lang: "言語"
+    edu: "学歴"
+    hint: "上のタブをクリックしてください！"
+  bio:
+    full_name: "氏名"
+    nickname: "ニックネーム"
+    gender: "性別"
+    nationality: "国籍"
+    age: "年齢"
+    hometown: "出身地"
+  lang:
+    fluent: "流暢"
+    intermediate: "中級"
+    interested: "興味 / 学習中"
+  view_all_blogs: "すべてのブログを見る"
+
+blogs:
+  search_placeholder: "ブログを検索..."
+  filter_all: "すべて"
+  no_results: "条件に一致するブログはありません"
+
+post:
+  back_to_blogs: "すべてのブログに戻る"
+
+lang_switcher:
+  label: "言語"
