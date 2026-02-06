@@ -13,5 +13,11 @@ languages:
   - code: la
     name: "LINGVA LATINA"
     flag: "🦅"
+  - code: tok
+    name: "toki pona"
+    flag: "🙂"
+  - code: grc
+    name: "Αττική Ελληνική"
+    flag: "🏛️"
 
 default: th

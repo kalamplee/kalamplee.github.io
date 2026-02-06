@@ -1,0 +1,59 @@
+# Toki Pona UI Translations
+nav:
+  home: "tomo"
+  blog: "lipu"
+  contact: "toki"
+
+landing:
+  enter_site: "o kama"
+  announcement: "toki suli"
+  contacts_title: "nasin toki mi"
+
+home:
+  tabs:
+    bio: "mi"
+    lang: "toki"
+    edu: "sona"
+    hint: "o luka e supa!"
+  bio:
+    full_name: "nimi suli"
+    nickname: "nimi lili"
+    gender: "meli anu mije"
+    nationality: "ma mama"
+    age: "tenpo"
+    hometown: "ma tomo"
+  lang:
+    fluent: "pona mute"
+    intermediate: "pona lili"
+    interested: "wile sona"
+  view_all_blogs: "o lukin e lipu ale"
+
+blogs:
+  search_placeholder: "o alasa..."
+  filter_all: "ale"
+  no_results: "lipu li lon ala"
+
+post:
+  back_to_blogs: "o tawa lipu ale"
+
+lang_switcher:
+  label: "toki"
+
+contacts:
+  youtube: "sitelen tawa, toki pona"
+  xtwitter: "sitelen lili (ante lili)"
+  bluesky: "sitelen ante (ante lili)"
+  facebook: "sitelen en sitelen tawa"
+  instagram: "toki lili en sitelen (ante lili)"
+  pixiv: "sitelen ale"
+  itch.io: "musi pali"
+  github: "pali ilo ante"
+
+roles:
+  - "🎮 jan pali musi"
+  - "🎨 jan sitelen"
+  - "✍️ jan lipu"
+  - "🤡 jan musi"
+  - "🌍 jan toki mute"
+  - "🎥 jan sitelen tawa"
+  - "💅 jan pona lukin"

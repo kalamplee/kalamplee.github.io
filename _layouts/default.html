@@ -13,12 +13,28 @@
     <link rel="icon" type="image/png" href="{{ '/images/kalam-logo.png' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Noto+Serif+JP:wght@100..900&display=swap"
+        rel="stylesheet">
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         [data-lucide] {
             /* fill: currentColor; */
             stroke-width: 1px;
+        }
+
+        /* Font Configuration */
+        body {
+            font-family: 'Noto Serif', 'Noto Serif JP', serif !important;
+        }
+
+        html[data-lang="th"] body {
+            font-family: 'K2D', sans-serif !important;
         }
     </style>
 
@@ -29,9 +45,11 @@
     <script>
         window.siteTranslations = {
             th: {{ site.data.i18n.th | jsonify }},
-            en: {{ site.data.i18n.en | jsonify }},
-            ja: {{ site.data.i18n.ja | jsonify }},
-            la: {{ site.data.i18n.la | jsonify }}
+        en: {{ site.data.i18n.en | jsonify }},
+        ja: {{ site.data.i18n.ja | jsonify }},
+        la: {{ site.data.i18n.la | jsonify }},
+        tok: {{ site.data.i18n.tok | jsonify }},
+        grc: {{ site.data.i18n.grc | jsonify }}
         };
         window.siteLangConfig = {{ site.data.languages.languages | jsonify }};
         window.siteDefaultLang = '{{ site.data.languages.default | default: "th" }}';

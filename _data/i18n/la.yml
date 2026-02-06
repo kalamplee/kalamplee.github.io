@@ -38,3 +38,22 @@ post:
 
 lang_switcher:
   label: "LINGVA"
+
+contacts:
+  youtube: "OPERA VIDEO, NARRATIONES IVCVNDAE"
+  xtwitter: "PIVRAE PICTAE (RARO RENOVATVR)"
+  bluesky: "ALTERNATIVVM PRO PICTVRIS (RARO RENOVATVR)"
+  facebook: "IMAGINES ET VIDEO"
+  instagram: "FABULAE ET PICTVRAE (RARO RENOVATVR)"
+  pixiv: "COLLECTIO PICTVRARVM"
+  itch.io: "LVDI PROIECTI"
+  github: "ALIA OPERA CODICIS"
+
+roles:
+  - "🎮 LVDORVM CREATOR"
+  - "🎨 ARTIFEX"
+  - "✍️ SCRIPTOR"
+  - "🤡 IOCVLATOR"
+  - "🌍 LINGVARVM STVDIOSVS"
+  - "🎥 VIDEOGRAPHVS"
+  - "💅 MVLIEBRITATIS CVLTOR"

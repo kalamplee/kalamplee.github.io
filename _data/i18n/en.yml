@@ -38,3 +38,22 @@ post:
 
 lang_switcher:
   label: "Language"
+
+contacts:
+  youtube: "Video works, interesting stories"
+  xtwitter: "Mostly art posts (rare updates)"
+  bluesky: "Alternative for art posts (rare updates)"
+  facebook: "Photos and video updates"
+  instagram: "Stories and art (rare updates)"
+  pixiv: "Art collection"
+  itch.io: "Game projects"
+  github: "Other coding projects"
+
+roles:
+  - "🎮 Game Developer"
+  - "🎨 Artist"
+  - "✍️ Writer"
+  - "🤡 Memer"
+  - "🌍 Language Enthusiast"
+  - "🎥 YouTuber"
+  - "💅 Crossdresser"

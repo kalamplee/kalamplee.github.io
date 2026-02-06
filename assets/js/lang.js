@@ -54,6 +54,15 @@
                 el.title = translation;
             }
         });
+
+        // Handle data-i18n-contact (contact descriptions)
+        document.querySelectorAll('[data-i18n-contact]').forEach(el => {
+            const contactKey = el.getAttribute('data-i18n-contact');
+            const translation = translations?.contacts?.[contactKey];
+            if (translation) {
+                el.textContent = translation;
+            }
+        });
     }
 
     // Get nested value from object using dot notation

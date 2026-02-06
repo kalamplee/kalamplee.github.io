@@ -1,0 +1,59 @@
+# Attic Greek UI Translations (Αττική Ελληνική)
+nav:
+  home: "οἶκος"
+  blog: "βιβλίον"
+  contact: "ἐπικοινωνία"
+
+landing:
+  enter_site: "εἴσελθε"
+  announcement: "ἀγγελία"
+  contacts_title: "αἱ ἐμαὶ ἐπικοινωνίαι"
+
+home:
+  tabs:
+    bio: "περὶ ἐμοῦ"
+    lang: "γλῶτται"
+    edu: "παιδεία"
+    hint: "πάταξον τὴν προκειμένην!"
+  bio:
+    full_name: "ὄνομα ὅλον"
+    nickname: "ὑποκόρισμα"
+    gender: "γένος"
+    nationality: "ἐθνικότης"
+    age: "ἡλικία"
+    hometown: "πατρίς"
+  lang:
+    fluent: "εὐγλωττία"
+    intermediate: "μέση ἐμπειρία"
+    interested: "ἐνδιαφέρον / μάθησις"
+  view_all_blogs: "ἴδε πάντα τὰ βιβλία"
+
+blogs:
+  search_placeholder: "ζήτει βιβλία..."
+  filter_all: "πάντα"
+  no_results: "οὐδὲν βιβλίον εὕρηται"
+
+post:
+  back_to_blogs: "ἐπάνελθε εἰς πάντα τὰ βιβλία"
+
+lang_switcher:
+  label: "γλῶττα"
+
+contacts:
+  youtube: "ἔργα κινηματογραφικά, διηγήματα"
+  xtwitter: "εἰκόνες ζωγραφικαί (σπανίως)"
+  bluesky: "ἐναλλακτικὸν τῶν εἰκόνων (σπανίως)"
+  facebook: "εἰκόνες καὶ κινηματογραφίαι"
+  instagram: "μῦθοι καὶ ζωγραφίαι (σπανίως)"
+  pixiv: "συλλογὴ ζωγραφιῶν"
+  itch.io: "ἔργα παιγνίων"
+  github: "ἄλλα ἔργα κωδικοποιήσεως"
+
+roles:
+  - "🎮 δημιουργὸς παιγνίων"
+  - "🎨 τεχνίτης"
+  - "✍️ συγγραφεύς"
+  - "🤡 γελωτοποιός"
+  - "🌍 φιλόγλωττος"
+  - "🎥 κινηματογράφος"
+  - "💅 γυναικομίμητης"
