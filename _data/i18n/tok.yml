@@ -29,6 +29,7 @@ home:
   view_all_blogs: "o lukin e lipu ale"
 
 blogs:
+  title: "lipu ale"
   search_placeholder: "o alasa..."
   filter_all: "ale"
   no_results: "lipu li lon ala"

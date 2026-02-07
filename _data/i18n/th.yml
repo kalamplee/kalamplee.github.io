@@ -29,6 +29,7 @@ home:
   view_all_blogs: "ดูบล็อกทั้งหมด"
 
 blogs:
+  title: "รวมบทความ"
   search_placeholder: "ค้นหาบล็อก..."
   filter_all: "ทั้งหมด"
   no_results: "ไม่พบบล็อกที่ตรงกับเงื่อนไข"

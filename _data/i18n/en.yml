@@ -29,6 +29,7 @@ home:
   view_all_blogs: "View All Blogs"
 
 blogs:
+  title: "All Blogs"
   search_placeholder: "Search blogs..."
   filter_all: "All"
   no_results: "No blogs match your criteria"

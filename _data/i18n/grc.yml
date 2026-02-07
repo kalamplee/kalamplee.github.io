@@ -29,6 +29,7 @@ home:
   view_all_blogs: "ἴδε πάντα τὰ βιβλία"
 
 blogs:
+  title: "Πάντα Τὰ Βιβλία"
   search_placeholder: "ζήτει βιβλία..."
   filter_all: "πάντα"
   no_results: "οὐδὲν βιβλίον εὕρηται"

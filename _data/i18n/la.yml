@@ -29,6 +29,7 @@ home:
   view_all_blogs: "OMNIA ACTA VIDERE"
 
 blogs:
+  title: "ACTA OMNIA"
   search_placeholder: "QVAERERE ACTA..."
   filter_all: "OMNIA"
   no_results: "NVLLA ACTA INVENTA"

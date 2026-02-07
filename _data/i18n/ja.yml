@@ -29,6 +29,7 @@ home:
   view_all_blogs: "すべてのブログを見る"
 
 blogs:
+  title: "ブログ一覧"
   search_placeholder: "ブログを検索..."
   filter_all: "すべて"
   no_results: "条件に一致するブログはありません"
