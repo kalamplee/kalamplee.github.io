@@ -87,6 +87,13 @@ show_nav: false
                 </div>
             </a>
 
+            {% if announcement_post.image %}
+            <div class="mt-6 max-w-2xl mx-auto">
+                <img src="{{ announcement_post.image | relative_url }}" alt="{{ announcement_post.title }}"
+                    class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 w-full h-auto">
+            </div>
+            {% endif %}
+
             <div class="h-px bg-gradient-to-r from-transparent via-primary-text/30 to-transparent w-full max-w mt-8">
             </div>
         </div>

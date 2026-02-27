@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "เพิ่มระบบแปลภาษา"
-date: 2026-01-18
+date: 2026-02-07
 categories: [language]
 excerpt: "ไม่รู้จะใส่มาทำไม"
 ---
