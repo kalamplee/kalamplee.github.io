@@ -55,9 +55,9 @@ show_nav: false
             })();
         </script>
 
-        <div class="my-16 text-center">
+        <div class="text-center mt-4">
             <a href="{{ '/home.html' | relative_url }}"
-                class="border border-primary-text rounded-2xl px-12 py-4 group flex flex-row items-center gap-4 mx-auto w-fit text-primary-text hover:text-primary-bg hover:border-accent hover:bg-accent transition-all duration-300 ">
+                class="border border-primary-text rounded-2xl px-8 group flex flex-row items-center gap-4 mx-auto w-fit text-primary-text hover:text-primary-bg hover:border-accent hover:bg-accent transition-all duration-300 ">
                 <div class="relative w-16 h-16">
                     <i data-lucide="door-closed"
                         class="absolute inset-0 w-full h-full transition-opacity duration-300 group-hover:opacity-0"></i>
@@ -71,8 +71,9 @@ show_nav: false
 
         {% assign announcement_post = site.posts | where: "announcement", true | first %}
         {% if announcement_post %}
-        <div class="flex flex-col items-center mb-8 animate-fade-in-down">
-            <div class="h-px bg-gradient-to-r from-transparent via-primary-text/30 to-transparent w-full max-w mb-4">
+        <div class="flex flex-col items-center animate-fade-in-down">
+            <div
+                class="h-px bg-gradient-to-r from-transparent via-primary-text/30 to-transparent w-full max-w mt-4 mb-2">
             </div>
 
             <a href="{{ announcement_post.url | relative_url }}" class="group inline-block">
@@ -81,7 +82,7 @@ show_nav: false
                         <i data-lucide="megaphone" class="w-5 h-5 animate-bounce"></i>
                         <span data-i18n="landing.announcement">ประกาศสำคัญ</span>
                     </div>
-                    <h2 class="text-accent text-2xl font-bold group-hover:brightness-110 transition-all mt-4">
+                    <h2 class="text-accent text-2xl font-bold group-hover:brightness-110 transition-all mt-2">
                         {{ announcement_post.title }}
                     </h2>
                 </div>
@@ -94,13 +95,14 @@ show_nav: false
             </div>
             {% endif %}
 
-            <div class="h-px bg-gradient-to-r from-transparent via-primary-text/30 to-transparent w-full max-w mt-8">
+            <div
+                class="h-px bg-gradient-to-r from-transparent via-primary-text/30 to-transparent w-full max-w mt-2 mb-2">
             </div>
         </div>
         {% endif %}
 
         <div class="mb-6">
-            <h3 class="text-primary-text font-bold text-xl" data-i18n="landing.contacts_title">My Contacts</h3>
+            <h3 class="text-primary-text font-bold text-2xl" data-i18n="landing.contacts_title">My Contacts</h3>
         </div>
         <div class="flex flex-wrap justify-center gap-6 md:gap-8 mx-auto mb-12">
             {% for contact in site.data.contacts %}
