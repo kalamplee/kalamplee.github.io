@@ -55,53 +55,87 @@ show_nav: false
             })();
         </script>
 
-        <div class="text-center mt-4">
-            <a href="{{ '/home.html' | relative_url }}"
-                class="border border-primary-text rounded-2xl px-8 group flex flex-row items-center gap-4 mx-auto w-fit text-primary-text hover:text-primary-bg hover:border-accent hover:bg-accent transition-all duration-300 ">
-                <div class="relative w-16 h-16">
-                    <i data-lucide="door-closed"
-                        class="absolute inset-0 w-full h-full transition-opacity duration-300 group-hover:opacity-0"></i>
-                    <i data-lucide="door-open"
-                        class="absolute inset-0 w-full h-full transition-opacity duration-300 opacity-0 group-hover:opacity-100"></i>
+        <!-- Expandable panel: Enter Site + Announcement -->
+        <div class="mt-6 w-full max-w-2xl mx-auto">
+
+            <!-- Toggle trigger -->
+            <button id="landing-panel-toggle" onclick="toggleLandingPanel()"
+                class="flex items-center justify-center gap-2 mx-auto px-6 py-4 rounded-full border border-primary-text/30 text-primary-text/60 hover:text-accent hover:border-accent transition-all duration-300"
+                aria-expanded="false">
+                <span class="text-sm tracking-widest uppercase">???</span>
+                <i data-lucide="chevron-down" id="landing-panel-chevron"
+                    class="w-4 h-4 transition-transform duration-300"></i>
+            </button>
+
+            <!-- Panel content -->
+            <div id="landing-panel" class="overflow-hidden transition-[max-height] duration-500 ease-in-out"
+                style="max-height: 0;">
+
+                <!-- Enter site button -->
+                <div class="text-center mt-2 mb-4">
+                    <a href="{{ '/home.html' | relative_url }}"
+                        class="border border-primary-text rounded-2xl px-8 group flex flex-row items-center gap-4 mx-auto w-fit text-primary-text hover:text-primary-bg hover:border-accent hover:bg-accent transition-all duration-300">
+                        <div class="relative w-16 h-16">
+                            <i data-lucide="door-closed"
+                                class="absolute inset-0 w-full h-full transition-opacity duration-300 group-hover:opacity-0"></i>
+                            <i data-lucide="door-open"
+                                class="absolute inset-0 w-full h-full transition-opacity duration-300 opacity-0 group-hover:opacity-100"></i>
+                        </div>
+                        <span class="text-xl font-bold tracking-widest uppercase"
+                            data-i18n="landing.enter_site">เข้าสู่เว็บไซต์</span>
+                    </a>
                 </div>
-                <span class="text-xl font-bold tracking-widest uppercase"
-                    data-i18n="landing.enter_site">เข้าสู่เว็บไซต์</span>
-            </a>
-        </div>
 
-        {% assign announcement_post = site.posts | where: "announcement", true | first %}
-        {% if announcement_post %}
-        <div class="flex flex-col items-center animate-fade-in-down">
-            <div
-                class="h-px bg-gradient-to-r from-transparent via-primary-text/30 to-transparent w-full max-w mt-4 mb-2">
-            </div>
+                {% assign announcement_post = site.posts | where: "announcement", true | first %}
+                {% if announcement_post %}
+                <div class="h-px bg-gradient-to-r from-transparent via-primary-text/30 to-transparent w-full mb-4">
+                </div>
 
-            <a href="{{ announcement_post.url | relative_url }}" class="group inline-block">
                 <div class="flex flex-col items-center">
-                    <div class="flex items-center gap-2 text-primary-text font-bold mb-1">
-                        <i data-lucide="megaphone" class="w-5 h-5 animate-bounce"></i>
-                        <span data-i18n="landing.announcement">ประกาศสำคัญ</span>
+                    <a href="{{ announcement_post.url | relative_url }}" class="group inline-block">
+                        <div class="flex flex-col items-center">
+                            <div class="flex items-center gap-2 text-primary-text font-bold mb-1">
+                                <i data-lucide="megaphone" class="w-5 h-5 animate-bounce"></i>
+                                <span data-i18n="landing.announcement">ประกาศสำคัญ</span>
+                            </div>
+                            <h2 class="text-accent text-2xl font-bold group-hover:brightness-110 transition-all mt-2">
+                                {{ announcement_post.title }}
+                            </h2>
+                        </div>
+                    </a>
+
+                    {% if announcement_post.image %}
+                    <div class="mt-6 max-w-2xl mx-auto w-full">
+                        <img src="{{ announcement_post.image | relative_url }}" alt="{{ announcement_post.title }}"
+                            class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 w-full h-auto">
                     </div>
-                    <h2 class="text-accent text-2xl font-bold group-hover:brightness-110 transition-all mt-2">
-                        {{ announcement_post.title }}
-                    </h2>
+                    {% endif %}
                 </div>
-            </a>
+                {% endif %}
 
-            {% if announcement_post.image %}
-            <div class="mt-6 max-w-2xl mx-auto">
-                <img src="{{ announcement_post.image | relative_url }}" alt="{{ announcement_post.title }}"
-                    class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 w-full h-auto">
-            </div>
-            {% endif %}
-
-            <div
-                class="h-px bg-gradient-to-r from-transparent via-primary-text/30 to-transparent w-full max-w mt-2 mb-2">
             </div>
         </div>
-        {% endif %}
 
-        <div class="mb-6">
+        <script>
+            function toggleLandingPanel() {
+                const panel = document.getElementById('landing-panel');
+                const btn = document.getElementById('landing-panel-toggle');
+                const chevron = document.getElementById('landing-panel-chevron');
+                const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+                if (isOpen) {
+                    panel.style.maxHeight = '0';
+                    btn.setAttribute('aria-expanded', 'false');
+                    chevron.style.transform = 'rotate(0deg)';
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + 'px';
+                    btn.setAttribute('aria-expanded', 'true');
+                    chevron.style.transform = 'rotate(180deg)';
+                }
+            }
+        </script>
+
+        <div class="mb-6 mt-4">
             <h3 class="text-primary-text font-bold text-2xl" data-i18n="landing.contacts_title">My Contacts</h3>
         </div>
         <div class="flex flex-wrap justify-center gap-6 md:gap-8 mx-auto mb-12">
@@ -110,8 +144,10 @@ show_nav: false
             <a href="{{ contact.url }}" {% if contact.url contains 'http' %}target="_blank" rel="noopener noreferrer" {%
                 endif %}
                 class="contact-item aspect-square w-60 flex-shrink-0 flex flex-col justify-center text-center !gap-4 overflow-hidden">
-                <div class="text-accent">
-                    <i data-lucide="{{ contact.icon }}" class="w-24 h-24 mx-auto"></i>
+                <div>
+                    <img src="https://cdn.simpleicons.org/{{ contact.icon }}/7FE599"
+                        class="w-24 h-24 mx-auto transition-transform duration-300 group-hover:scale-110"
+                        alt="{{ contact.name }} icon">
                 </div>
                 <div class="text-center px-4 w-full">
                     <div class="text-xl font-bold truncate mb-2">{{ contact.name }}</div>

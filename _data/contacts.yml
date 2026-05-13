@@ -4,14 +4,19 @@
   url: "https://www.youtube.com/channel/UCnyfYaBrlhd14r0dSE4TTqg"
 
 - name: "X (Twitter)"
-  icon: "twitter"
+  icon: "x"
   description: "เน้นลงภาพวาด (อัปเดตน้อย)"
   url: "https://x.com/mrkalamplee"
 
 - name: "Bluesky"
-  icon: "cloud"
+  icon: "bluesky"
   description: "ทางเลือกเน้นลงภาพวาด (อัปเดตน้อย)"
   url: "https://bsky.app/profile/mrkalamplee.bsky.social"
+
+- name: "Patreon"
+  icon: "patreon"
+  description: "สนับสนุนผลงาน"
+  url: "https://patreon.com/MrKalamplee"
 
 - name: "Facebook"
   icon: "facebook"
@@ -24,12 +29,12 @@
   url: "https://www.instagram.com/mrkalamplee/"
 
 - name: "Pixiv"
-  icon: "brush"
+  icon: "pixiv"
   description: "รวมภาพวาด"
   url: "https://www.pixiv.net/users/16806617"
 
 - name: "itch.io"
-  icon: "gamepad-2"
+  icon: "itchdotio"
   description: "โปรเจกต์เกม"
   url: "https://kalamplee.itch.io/"
 
