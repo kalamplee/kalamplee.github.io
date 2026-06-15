@@ -55,7 +55,7 @@ show_nav: false
             })();
         </script>
 
-        <!-- Expandable panel: Enter Site + Announcement -->
+        <!-- Expandable panel: Enter Site + Patreon Feed -->
         <div class="mt-6 w-full max-w-2xl mx-auto">
 
             <!-- Toggle trigger -->
@@ -86,31 +86,22 @@ show_nav: false
                     </a>
                 </div>
 
-                {% assign announcement_post = site.posts | where: "announcement", true | first %}
-                {% if announcement_post %}
-                <div class="h-px bg-gradient-to-r from-transparent via-primary-text/30 to-transparent w-full mb-4">
-                </div>
-
-                <div class="flex flex-col items-center">
-                    <a href="{{ announcement_post.url | relative_url }}" class="group inline-block">
-                        <div class="flex flex-col items-center">
-                            <div class="flex items-center gap-2 text-primary-text font-bold mb-1">
-                                <i data-lucide="megaphone" class="w-5 h-5 animate-bounce"></i>
-                                <span data-i18n="landing.announcement">ประกาศสำคัญ</span>
+                {% if site.data.patreon and site.data.patreon.size > 0 %}
+                    {% assign post = site.data.patreon[0] %}
+                    <div class="flex flex-col items-center">
+                        <div class="h-px bg-gradient-to-r from-transparent via-primary-text/30 to-transparent w-full mb-4"></div>
+                        <a href="{{ post.link }}" target="_blank" class="group inline-block">
+                            <div class="flex flex-col items-center">
+                                <div class="flex items-center gap-2 text-primary-text font-bold mb-1">
+                                    <i data-lucide="heart" class="w-5 h-5 text-red-500 animate-pulse"></i>
+                                    <span>Patreon Update</span>
+                                </div>
+                                <h2 class="text-accent text-2xl font-bold group-hover:brightness-110 transition-all mt-2">
+                                    {{ post.title }}
+                                </h2>
                             </div>
-                            <h2 class="text-accent text-2xl font-bold group-hover:brightness-110 transition-all mt-2">
-                                {{ announcement_post.title }}
-                            </h2>
-                        </div>
-                    </a>
-
-                    {% if announcement_post.image %}
-                    <div class="mt-6 max-w-2xl mx-auto w-full">
-                        <img src="{{ announcement_post.image | relative_url }}" alt="{{ announcement_post.title }}"
-                            class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 w-full h-auto">
+                        </a>
                     </div>
-                    {% endif %}
-                </div>
                 {% endif %}
 
             </div>

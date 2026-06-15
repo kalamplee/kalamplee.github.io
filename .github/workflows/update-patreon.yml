@@ -1,0 +1,30 @@
+name: Update Patreon Feed
+on:
+  schedule:
+    - cron: '0 0 * * *' # รันทุกวันเที่ยงคืน
+  workflow_dispatch: # กดรันเองได้
+
+jobs:
+  update-feed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - run: pip install feedparser
+      - run: |
+          python -c "
+          import feedparser, json
+          feed = feedparser.parse('https://www.patreon.com/lowtechmagazine/rss')
+          data = [{'title': item.title, 'link': item.link} for item in feed.entries]
+          with open('_data/patreon.json', 'w', encoding='utf-8') as f:
+              json.dump(data, f, ensure_ascii=False, indent=2)
+          "
+      - name: Commit and push
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.nobodies.in'
+          git add _data/patreon.json
+          git commit -m 'Update patreon feed' || echo 'No changes'
+          git push
