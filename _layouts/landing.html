@@ -62,7 +62,7 @@ show_nav: false
             <button id="landing-panel-toggle" onclick="toggleLandingPanel()"
                 class="flex items-center justify-center gap-2 mx-auto px-6 py-4 rounded-full border border-primary-text/30 text-primary-text/60 hover:text-accent hover:border-accent transition-all duration-300"
                 aria-expanded="false">
-                <span class="text-sm tracking-widest uppercase">???</span>
+                <span class="text-sm tracking-widest uppercase" data-i18n="landing.latest_post">โพสต์ล่าสุด</span>
                 <i data-lucide="chevron-down" id="landing-panel-chevron"
                     class="w-4 h-4 transition-transform duration-300"></i>
             </button>
@@ -71,8 +71,56 @@ show_nav: false
             <div id="landing-panel" class="overflow-hidden transition-[max-height] duration-500 ease-in-out"
                 style="max-height: 0;">
 
+                <!-- Latest Patreon Post -->
+                {% if site.data.patreon %}
+                <div class="flex flex-col items-center">
+
+                    <a href="{{ site.data.patreon.url }}" target="_blank" rel="noopener noreferrer" class="group inline-block w-full max-w-2xl">
+                        <div class="flex flex-col md:flex-row gap-4 items-center justify-center">
+
+                            <!-- Left: Media Section -->
+                            <div class="md:w-1/3 h-48 shrink-0 overflow-hidden shadow-lg relative">
+                                {% if site.data.patreon.video %}
+                                    <div class="absolute inset-0 w-full h-full">
+                                        <iframe class="w-full h-full"
+                                            src="{{ site.data.patreon.video | replace: 'watch?v=', 'embed/' | replace: 'youtu.be/', 'youtube.com/embed/' }}"
+                                            frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                {% elsif site.data.patreon.images and site.data.patreon.images.size > 0 %}
+                                    <div class="flex gap-2 h-full w-full">
+                                        {% for img in site.data.patreon.images limit: 3 %}
+                                            <img src="{{ img }}"
+                                                class="h-full object-cover {% if site.data.patreon.images.size == 1 %}w-full{% elsif site.data.patreon.images.size == 2 %}w-1/2{% else %}w-1/3{% endif %}"
+                                                alt="Patreon post image">
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <!-- Right: Content Section -->
+                            <div class="flex flex-col text-left">
+                                <div class="flex items-center gap-2 text-primary-text font-bold mb-1">
+                                    <i data-lucide="heart" class="w-5 h-5 text-accent animate-pulse"></i>
+                                    <span class="text-sm tracking-widest uppercase" data-i18n="landing.latest_post">Latest Post</span>
+                                </div>
+
+                                <h2 class="text-accent text-2xl font-bold group-hover:brightness-110 transition-all mt-2">
+                                    {{ site.data.patreon.title }}
+                                </h2>
+
+                                {% if site.data.patreon.excerpt %}
+                                    <p class="text-primary-text/60 text-sm mt-2 line-clamp-2">
+                                        {{ site.data.patreon.excerpt }}
+                                    </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endif %}
+
                 <!-- Enter site button -->
-                <div class="text-center mt-2 mb-4">
+                <!-- <div class="text-center mt-2 mb-4">
                     <a href="{{ '/home.html' | relative_url }}"
                         class="border border-primary-text rounded-2xl px-8 group flex flex-row items-center gap-4 mx-auto w-fit text-primary-text hover:text-primary-bg hover:border-accent hover:bg-accent transition-all duration-300">
                         <div class="relative w-16 h-16">
@@ -81,37 +129,9 @@ show_nav: false
                             <i data-lucide="door-open"
                                 class="absolute inset-0 w-full h-full transition-opacity duration-300 opacity-0 group-hover:opacity-100"></i>
                         </div>
-                        <span class="text-xl font-bold tracking-widest uppercase"
-                            data-i18n="landing.enter_site">เข้าสู่เว็บไซต์</span>
+                        <span class="text-xl font-bold tracking-widest uppercase" data-i18n="landing.enter_site">เข้าสู่เว็บไซต์</span>
                     </a>
-                </div>
-
-                {% assign announcement_post = site.posts | where: "announcement", true | first %}
-                {% if announcement_post %}
-                <div class="h-px bg-gradient-to-r from-transparent via-primary-text/30 to-transparent w-full mb-4">
-                </div>
-
-                <div class="flex flex-col items-center">
-                    <a href="{{ announcement_post.url | relative_url }}" class="group inline-block">
-                        <div class="flex flex-col items-center">
-                            <div class="flex items-center gap-2 text-primary-text font-bold mb-1">
-                                <i data-lucide="megaphone" class="w-5 h-5 animate-bounce"></i>
-                                <span data-i18n="landing.announcement">ประกาศสำคัญ</span>
-                            </div>
-                            <h2 class="text-accent text-2xl font-bold group-hover:brightness-110 transition-all mt-2">
-                                {{ announcement_post.title }}
-                            </h2>
-                        </div>
-                    </a>
-
-                    {% if announcement_post.image %}
-                    <div class="mt-6 max-w-2xl mx-auto w-full">
-                        <img src="{{ announcement_post.image | relative_url }}" alt="{{ announcement_post.title }}"
-                            class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300 w-full h-auto">
-                    </div>
-                    {% endif %}
-                </div>
-                {% endif %}
+                </div> -->
 
             </div>
         </div>

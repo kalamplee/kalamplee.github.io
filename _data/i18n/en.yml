@@ -7,6 +7,7 @@ nav:
 landing:
   enter_site: "Enter Site"
   announcement: "Announcement"
+  latest_post: "Latest Post"
   contacts_title: "My Contacts"
 
 home:

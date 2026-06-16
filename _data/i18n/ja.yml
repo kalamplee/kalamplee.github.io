@@ -7,6 +7,7 @@ nav:
 landing:
   enter_site: "サイトに入る"
   announcement: "お知らせ"
+  latest_post: "最新の投稿"
   contacts_title: "私の連絡先"
 
 home:
